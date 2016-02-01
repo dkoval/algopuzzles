@@ -15,7 +15,7 @@ package com.nohup.epi;
 public class Parity {
 
     public static short solution(long x) {
-        // The parity P of a set of 2 bits can be computed using XOR operation:
+        // The parity P of a set S of 2 bits can be computed using XOR operation:
         //
         // 0 ^ 0 = 0 - parity is even
         // 0 ^ 1 = 1 - parity is odd
