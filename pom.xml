@@ -8,6 +8,12 @@
     <artifactId>epi-solutions</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:http://github.com/dkoval/eip-solutions.git</connection>
+        <developerConnection>scm:git:https://github.com/dkoval/eip-solutions.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
