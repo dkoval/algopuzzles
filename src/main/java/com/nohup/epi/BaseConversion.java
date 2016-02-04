@@ -23,7 +23,7 @@ public class BaseConversion {
         for (int i = isNeg ? 1 : 0; i < s.length(); i++) {
             char c = s.charAt(i);
             answer *= base;
-            answer += isDigit(c) ? c - '0' : c - 'A' + 10;
+            answer += toDigit(c);
         }
         return isNeg ? -answer : answer;
     }
@@ -35,8 +35,7 @@ public class BaseConversion {
         n = Math.abs(n);
         while (n > 0) {
             int digit = n % base;
-            int asciiCode = digit >= 10 ? 'A' + digit - 10 : '0' + digit;
-            answer.append((char) asciiCode);
+            answer.append(toChar(digit));
             n /= base;
         }
 
@@ -53,5 +52,14 @@ public class BaseConversion {
 
     private static boolean isDigit(char c) {
         return (c >= '0' && c <= '9');
+    }
+
+    private static int toDigit(char c) {
+        return isDigit(c) ? c - '0' : c - 'A' + 10;
+    }
+
+    private static char toChar(int digit) {
+        int asciiCode = (digit >= 10) ? 'A' + digit - 10 : '0' + digit;
+        return (char) asciiCode;
     }
 }
