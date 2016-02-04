@@ -30,9 +30,9 @@ public class BaseConversion {
 
     private static String toString(int n, int base) {
         boolean isNeg = n < 0;
-        n = Math.abs(n);
         StringBuilder answer = new StringBuilder();
 
+        n = Math.abs(n);
         while (n > 0) {
             int digit = n % base;
             int asciiCode = digit >= 10 ? 'A' + digit - 10 : '0' + digit;
