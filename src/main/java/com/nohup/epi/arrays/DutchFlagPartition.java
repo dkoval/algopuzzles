@@ -1,4 +1,4 @@
-package com.nohup.epi;
+package com.nohup.epi.arrays;
 
 import java.util.List;
 

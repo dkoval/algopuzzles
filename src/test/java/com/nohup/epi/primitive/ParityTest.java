@@ -1,4 +1,4 @@
-package com.nohup.epi;
+package com.nohup.epi.primitive;
 
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class ParityTest {
 
     @Test
     public void parity() {
-        long probe = System.currentTimeMillis();
+        long probe = 0b1000000000000000000000000000000000000000000000000000000000000000L/*System.currentTimeMillis()*/;
         short answer = Parity.solution(probe);
         assertEquals(Long.bitCount(probe) % 2, answer);
     }

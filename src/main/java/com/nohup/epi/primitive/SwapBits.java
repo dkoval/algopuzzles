@@ -1,4 +1,4 @@
-package com.nohup.epi;
+package com.nohup.epi.primitive;
 
 /**
  * EPI, Problem 5.2 p.47: A 64-bit can be viewed as an array of 64 bits, with the bit at index 0

@@ -1,4 +1,4 @@
-package com.nohup.epi;
+package com.nohup.epi.strings;
 
 /**
  * <a href="http://judge.elementsofprogramminginterviews.com:8080/post/base-conversion">Problem:</a>

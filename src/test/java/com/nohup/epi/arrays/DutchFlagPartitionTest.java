@@ -1,6 +1,6 @@
-package com.nohup.epi;
+package com.nohup.epi.arrays;
 
-import com.nohup.epi.DutchFlagPartition.Color;
+import com.nohup.epi.arrays.DutchFlagPartition.Color;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
