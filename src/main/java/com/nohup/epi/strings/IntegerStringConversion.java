@@ -28,7 +28,7 @@ public class IntegerStringConversion {
         if (buff.length() == 0) {
             buff.append('0');
         }
-
+        // add '-' symbol if input x is a negative number
         if (isNeg) {
             buff.append('-');
         }

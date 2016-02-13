@@ -30,24 +30,26 @@ public class BaseConversion {
 
     private static String toString(int n, int base) {
         boolean isNeg = n < 0;
-        StringBuilder answer = new StringBuilder();
+        if (isNeg) {
+            n = -n;
+        }
 
-        n = Math.abs(n);
-        while (n > 0) {
+        StringBuilder buff = new StringBuilder();
+        while (n != 0) {
             int digit = n % base;
-            answer.append(toChar(digit));
             n /= base;
+            buff.append(toChar(digit));
         }
 
         // while loop did not execute, meaning that input n = 0
-        if (answer.length() == 0) {
-            answer.append('0');
+        if (buff.length() == 0) {
+            buff.append('0');
         }
         // add '-' symbol if input n is a negative number
         if (isNeg) {
-            answer.append('-');
+            buff.append('-');
         }
-        return answer.reverse().toString();
+        return buff.reverse().toString();
     }
 
     private static boolean isDigit(char c) {
