@@ -1,4 +1,4 @@
-package com.nohup.epi.strings;
+package com.nohup.epi.ch6.strings;
 
 /**
  * <a href="http://judge.elementsofprogramminginterviews.com:8080/post/integer-string-conversion">Problem:</a>

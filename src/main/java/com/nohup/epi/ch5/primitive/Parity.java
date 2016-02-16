@@ -1,4 +1,4 @@
-package com.nohup.epi.primitive;
+package com.nohup.epi.ch5.primitive;
 
 /**
  * <a href="http://judge.elementsofprogramminginterviews.com:8080/post/parity">Problem:</a>

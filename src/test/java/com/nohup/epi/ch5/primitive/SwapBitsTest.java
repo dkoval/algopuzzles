@@ -1,4 +1,4 @@
-package com.nohup.epi.primitive;
+package com.nohup.epi.ch5.primitive;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

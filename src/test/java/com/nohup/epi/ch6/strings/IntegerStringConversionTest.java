@@ -1,4 +1,4 @@
-package com.nohup.epi.strings;
+package com.nohup.epi.ch6.strings;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

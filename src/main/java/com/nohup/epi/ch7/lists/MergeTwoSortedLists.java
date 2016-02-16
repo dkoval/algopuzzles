@@ -1,4 +1,4 @@
-package com.nohup.epi.lists;
+package com.nohup.epi.ch7.lists;
 
 import java.util.Objects;
 

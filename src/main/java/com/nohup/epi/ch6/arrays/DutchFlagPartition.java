@@ -1,4 +1,4 @@
-package com.nohup.epi.arrays;
+package com.nohup.epi.ch6.arrays;
 
 import java.util.List;
 
