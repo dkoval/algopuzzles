@@ -51,7 +51,7 @@ public class MergeTwoSortedLists {
             return F;
         }
 
-        // merge(L, null) == L
+        // merge(L, null) = L
         if (F == null) {
             return L;
         }
