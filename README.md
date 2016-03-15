@@ -1,2 +1,2 @@
-# epi-solutions
-Is a collection of solutions to the problems defined at [EPI Judge](http://judge.elementsofprogramminginterviews.com:8080/) resource.
+# Algo Puzzles
+A set of programming questions & solutions to get yourself prepared to a technical interview.

@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.nohup.epi</groupId>
-    <artifactId>epi-solutions</artifactId>
+    <groupId>com.bsmart</groupId>
+    <artifactId>algopuzzles</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <scm>
-        <connection>scm:git:http://github.com/dkoval/eip-solutions.git</connection>
-        <developerConnection>scm:git:https://github.com/dkoval/eip-solutions.git</developerConnection>
+        <connection>scm:git:http://github.com/dkoval/algopuzzles.git</connection>
+        <developerConnection>scm:git:https://github.com/dkoval/algopuzzles.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
