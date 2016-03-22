@@ -14,16 +14,16 @@ import java.util.Scanner;
  * <p>
  * Given a sentence s, tell Roy if it is a pangram or not.
  * <p>
- * <b>Input Format</b>
+ * Input Format
  * <p>
  * Input consists of a string s.
  * <p>
- * <b>Constraints</b>
+ * Constraints
  * <p>
  * Length of ss can be at most 10^3 (1≤|s|≤10^3) and it may contain spaces, lower case and upper case letters.
  * Lower-case and upper-case instances of a letter are considered the same.
  * <p>
- * <b>Output Format</b>
+ * Output Format
  * <p>
  * Output a line containing pangram if s is a pangram, otherwise output not pangram.
  */
