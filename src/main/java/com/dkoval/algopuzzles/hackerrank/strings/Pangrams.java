@@ -34,6 +34,11 @@ public class Pangrams {
         String input = scan.nextLine();
         scan.close();
 
+        boolean isPangram = isPangram(input);
+        System.out.println(isPangram ? "pangram" : "not pangram");
+    }
+
+    public static boolean isPangram(String input) {
         // there are 26 letter in English alphabet, thus int data type (4 bytes = 32 bits) can be used
         // to keep track of all used letters in the given sentence.
         int mask = 0b00000011_11111111_11111111_11111111;
@@ -44,12 +49,9 @@ public class Pangrams {
                 // ignore whitespaces
                 continue;
             }
-
             int pos = Character.isLowerCase(ch) ? ch - 'a' : ch - 'A';
             used |= 1 << pos;
         }
-
-        boolean isPangram = used == mask;
-        System.out.println(isPangram ? "pangram" : "not pangram");
+        return used == mask;
     }
 }

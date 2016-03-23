@@ -40,10 +40,9 @@ public class AlternatingCharacters {
         scan.close();
     }
 
-    private static int countNumOfDeletions(String input) {
+    public static int countNumOfDeletions(String input) {
         char prev = input.charAt(0);
         int numOfDeletions = 0;
-
         for (int i = 1; i < input.length(); i++) {
             char next = input.charAt(i);
             if (next == prev) {
