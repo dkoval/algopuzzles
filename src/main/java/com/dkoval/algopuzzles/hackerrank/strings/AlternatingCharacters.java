@@ -34,13 +34,13 @@ public class AlternatingCharacters {
         scan.nextLine();
         for (int i = 0; i < numTestCases; i++) {
             String input = scan.nextLine();
-            int answer = countNumOfDeletions(input);
+            int answer = minNumOfDeletions(input);
             System.out.println(answer);
         }
         scan.close();
     }
 
-    public static int countNumOfDeletions(String input) {
+    public static int minNumOfDeletions(String input) {
         char prev = input.charAt(0);
         int numOfDeletions = 0;
         for (int i = 1; i < input.length(); i++) {
