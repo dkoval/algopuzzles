@@ -39,7 +39,7 @@ public class Pangrams {
     }
 
     public static boolean isPangram(String input) {
-        // there are 26 letter in English alphabet, thus int data type (4 bytes = 32 bits) can be used
+        // there are 26 letters in English alphabet, thus int data type (4 bytes = 32 bits) can be used
         // to keep track of all used letters in the given sentence.
         int mask = 0b00000011_11111111_11111111_11111111;
         int used = 0;
