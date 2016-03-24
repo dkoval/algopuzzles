@@ -43,7 +43,7 @@ public class FunnyString {
         scan.close();
     }
 
-    public static boolean isFunny(String input) {
+    static boolean isFunny(String input) {
         final int N = input.length();
         for (int i = 1; i < N; i++) {
             int directDiff = Math.abs(input.charAt(i) - input.charAt(i - 1));

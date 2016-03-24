@@ -40,7 +40,7 @@ public class AlternatingCharacters {
         scan.close();
     }
 
-    public static int minNumOfDeletions(String input) {
+    static int minNumOfDeletions(String input) {
         char prev = input.charAt(0);
         int numOfDeletions = 0;
         for (int i = 1; i < input.length(); i++) {

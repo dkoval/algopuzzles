@@ -50,7 +50,7 @@ public class LoveLetterMystery {
         scan.close();
     }
 
-    public static int minNumOfOpsToFormPalindrome(String input) {
+    static int minNumOfOpsToFormPalindrome(String input) {
         final int N = input.length();
         int numOfOps = 0;
         for (int i = 0; i < N / 2; i++) {

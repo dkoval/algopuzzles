@@ -40,7 +40,7 @@ public class Gemstones {
         System.out.println(numOfGemElements);
     }
 
-    public static int numOfGemElements(Scanner scan, int numOfRocks) {
+    static int numOfGemElements(Scanner scan, int numOfRocks) {
         int aggregatedRockComposition = 0xFFFFFFFF;
         for (int i = 0; i < numOfRocks; i++) {
             String rock = scan.nextLine();
