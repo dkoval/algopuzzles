@@ -1,5 +1,9 @@
 package com.github.dkoval.algopuzzles.hackerrank.strings;
 
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -32,18 +36,15 @@ import java.util.Scanner;
 public class Gemstones {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int numOfRocks = scan.nextInt();
-        scan.nextLine();
-        int numOfGemElements = numOfGemElements(scan, numOfRocks);
-        scan.close();
+        Iterator<String> rocks = new InputSourceIterator(System.in);
+        int numOfGemElements = numOfGemElements(rocks);
         System.out.println(numOfGemElements);
     }
 
-    static int numOfGemElements(Scanner scan, int numOfRocks) {
+    static int numOfGemElements(Iterator<String> seq) {
         int aggregatedRockComposition = 0xFFFFFFFF;
-        for (int i = 0; i < numOfRocks; i++) {
-            String rock = scan.nextLine();
+        while (seq.hasNext()) {
+            String rock = seq.next();
             // 1-bit at position i means that there are at least 2 rocks
             // including i-th element
             aggregatedRockComposition &= rockComposition(rock);
@@ -62,5 +63,44 @@ public class Gemstones {
             composition |= 1 << pos;
         }
         return composition;
+    }
+
+    /**
+     * Helps to properly unit test the solution.
+     * Under the hood, uses a Scanner to iterate over an input source.
+     */
+    static class InputSourceIterator implements Iterator<String>, Closeable {
+        private final Scanner scan;
+        private int size;
+
+        InputSourceIterator(InputStream source) {
+            this(new Scanner(source));
+        }
+
+        InputSourceIterator(String source) {
+            this(new Scanner(source));
+        }
+
+        private InputSourceIterator(Scanner scan) {
+            this.scan = scan;
+            this.size = Integer.parseInt(scan.nextLine());
+        }
+
+        @Override
+        public boolean hasNext() {
+            return scan.hasNext() && (size > 0);
+        }
+
+        @Override
+        public String next() {
+            String s = scan.nextLine();
+            size--;
+            return s;
+        }
+
+        @Override
+        public void close() throws IOException {
+            scan.close();
+        }
     }
 }
