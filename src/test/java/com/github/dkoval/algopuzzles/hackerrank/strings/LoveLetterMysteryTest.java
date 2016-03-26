@@ -33,7 +33,7 @@ public class LoveLetterMysteryTest {
     }
 
     @Test
-    public void testMinNumOfOpsToFormPalindrome() throws Exception {
+    public void minNumOfOpsToFormPalindrome() throws Exception {
         int actualMinNumOfOpsToFormPalindrome = LoveLetterMystery.minNumOfOpsToFormPalindrome(input);
         assertEquals(expectedMinNumOfOpsToFormPalindrome, actualMinNumOfOpsToFormPalindrome);
     }

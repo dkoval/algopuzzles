@@ -31,7 +31,7 @@ public class FunnyStringTest {
     }
 
     @Test
-    public void testIsFunny() throws Exception {
+    public void isFunny() throws Exception {
         boolean answer = FunnyString.isFunny(input);
         assertEquals(isFunny, answer);
     }

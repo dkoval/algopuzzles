@@ -35,7 +35,7 @@ public class GemstonesTest {
     }
 
     @Test
-    public void testNumOfGemElements() throws Exception {
+    public void numOfGemElements() throws Exception {
         int actualNumOfGemElements = Gemstones.numOfGemElements(
                 new Gemstones.InputSourceIterator(input));
         assertEquals(expectedNumOfGemElements, actualNumOfGemElements);

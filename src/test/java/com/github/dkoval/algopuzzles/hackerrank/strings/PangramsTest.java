@@ -31,7 +31,7 @@ public class PangramsTest {
     }
 
     @Test
-    public void testIsPangram() throws Exception {
+    public void isPangram() throws Exception {
         boolean answer = Pangrams.isPangram(input);
         assertEquals(isPangram, answer);
     }

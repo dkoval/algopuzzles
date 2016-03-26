@@ -35,7 +35,7 @@ public class AnagramTest {
     }
 
     @Test
-    public void testMinNumOfChangesToMakeAnagram() throws Exception {
+    public void minNumOfChangesToMakeAnagram() throws Exception {
         int actualMinNumOfChangesToMakeAnagram = Anagram.minNumOfChangesToMakeAnagram(input);
         assertEquals(expectedMinNumOfChangesToMakeAnagram, actualMinNumOfChangesToMakeAnagram);
     }

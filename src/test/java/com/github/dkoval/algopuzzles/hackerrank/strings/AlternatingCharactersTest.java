@@ -34,7 +34,7 @@ public class AlternatingCharactersTest {
     }
 
     @Test
-    public void testMinNumOfDeletions() throws Exception {
+    public void minNumOfDeletions() throws Exception {
         int actualMinNumOfDeletions = AlternatingCharacters.minNumOfDeletions(input);
         assertEquals(expectedMinNumOfDeletions, actualMinNumOfDeletions);
     }
