@@ -53,7 +53,9 @@ public class LoveLetterMystery {
     static int minNumOfOpsToFormPalindrome(String input) {
         final int N = input.length();
         int numOfOps = 0;
-        for (int i = 0; i < N / 2; i++) {
+        // begin = 0, end = N - 1, mid = (begin + end) / 2 = (N - 1) / 2
+        int mid = (N - 1) / 2;
+        for (int i = 0; i <= mid; i++) {
             char lch = input.charAt(i);
             char rch = input.charAt(N - i - 1);
             // Rule #1: He can reduce the value of a letter, e.g. he can change d to c, but he cannot change c to d.
