@@ -16,9 +16,9 @@ import java.util.Scanner;
  * <p>
  * Constraints
  * <ul>
- *     <li>1≤T≤20</li>
- *     <li>1≤ length of string ≤100005</li>
- *     <li>All characters are Latin lower case indexed.</li>
+ * <li>1≤T≤20</li>
+ * <li>1≤ length of string ≤100005</li>
+ * <li>All characters are Latin lower case indexed.</li>
  * </ul>
  * <p>
  * Output Format
