@@ -41,7 +41,7 @@ public class BearAndSteadyGeneTest {
     }
 
     @Test
-    public void lengthOfSmallestPossibleSubstringReplacedToMakeInputStable() throws Exception {
+    public void minLengthOfSubstringReplacedToMakeGeneStable() throws Exception {
         int answer = BearAndSteadyGene.minLengthOfSubstringReplacedToMakeGeneStable(input);
         assertEquals(expectedAnswer, answer);
     }
