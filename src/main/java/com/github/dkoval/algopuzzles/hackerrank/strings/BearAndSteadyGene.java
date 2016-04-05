@@ -58,14 +58,21 @@ public class BearAndSteadyGene {
             return 0;
         } else {
             int min = N;
-            int begin = 0;
-            for (int end = 0; end < N; end++) {
-                decreaseLetterFrequency(letterFrequencyTable, gene.charAt(end));
-                while (isSteady(letterFrequencyTable, steadyLetterFrequency) && begin <= end) {
-                    min = Math.min(min, end - begin + 1);
-                    increaseLetterFrequency(letterFrequencyTable, gene.charAt(begin));
-                    begin++;
+            int end = 0;
+            // for each possible starting index of the interval let's find the nearest possible ending index
+            for (int begin = 0; begin < N; begin++) {
+                while (end < N && !isSteady(letterFrequencyTable, steadyLetterFrequency)) {
+                    // keep 'removing' letters until the remaining sequence forms a steady gene
+                    decreaseLetterFrequency(letterFrequencyTable, gene.charAt(end));
+                    end++;
                 }
+                // once got a steady sequence, check if it is the smallest possible
+                if (isSteady(letterFrequencyTable, steadyLetterFrequency)) {
+                    min = Math.min(min, end - begin);
+                }
+                // next iteration will increment the starting index,
+                // thus rollback the initial frequency value of a letter at this index
+                increaseLetterFrequency(letterFrequencyTable, gene.charAt(begin));
             }
             return min;
         }
