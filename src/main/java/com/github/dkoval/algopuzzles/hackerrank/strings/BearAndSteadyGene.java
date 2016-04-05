@@ -45,6 +45,7 @@ public class BearAndSteadyGene {
         // ignore the first line containing an integer n divisible by 4, denoting the length of a string s
         scan.nextLine();
         String input = scan.nextLine();
+        scan.close();
         int answer = minLengthOfSubstringReplacedToMakeGeneStable(input);
         System.out.println(answer);
     }
