@@ -69,7 +69,7 @@ public class Anagram {
                 numOfChanges++;
             } else {
                 if (freq > 1) {
-                    // if the character if present more then once in S2,
+                    // if the character is present more then once in S2,
                     // mark it as partially processed by decreasing its frequency
                     charFreqMap.put(ch, --freq);
                 } else {
