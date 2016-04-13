@@ -7,18 +7,18 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static com.github.dkoval.algopuzzles.hackerrank.challenges.LinkedListDeletion.Node;
+import static com.github.dkoval.algopuzzles.hackerrank.challenges.LinkedListProblem.Node;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link LinkedListDeletion} solution.
+ * Tests {@link LinkedListProblem} solution.
  */
 @RunWith(Parameterized.class)
-public class LinkedListDeletionTest {
+public class LinkedListProblemTest {
     private final int[] input;
     private final int[] expected;
 
-    public LinkedListDeletionTest(int[] input, int[] expected) {
+    public LinkedListProblemTest(int[] input, int[] expected) {
         this.input = input;
         this.expected = expected;
     }
@@ -40,7 +40,7 @@ public class LinkedListDeletionTest {
     @Test
     public void removeDuplicates() throws Exception {
         Node initial = Node.create(input);
-        Node updated = LinkedListDeletion.removeDuplicates(initial);
+        Node updated = LinkedListProblem.removeDuplicates(initial);
         assertEquals(Node.create(expected), updated);
     }
 }

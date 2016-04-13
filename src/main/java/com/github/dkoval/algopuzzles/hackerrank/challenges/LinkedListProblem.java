@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * <a href="https://www.hackerrank.com/challenges/30-linked-list-deletion">30 Days of Code > Day 24 > More Linked Lists</a>
  */
-public class LinkedListDeletion {
+public class LinkedListProblem {
 
     static class Node {
         int data;
