@@ -73,7 +73,7 @@ public class KElementSequences {
     }
 
     private static long pow(long a, long b, long mod) {
-        // O(log n) algorithm of calculating a ^ b
+        // O(log n) algorithm of calculating pow(a, b)
         // http://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/
         if (a == 0) {
             return 0;
