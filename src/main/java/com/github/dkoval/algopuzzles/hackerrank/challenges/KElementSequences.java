@@ -14,7 +14,7 @@ import java.util.Scanner;
  * </ul>
  * Input Format
  * <p>
- * The first line contains the number of test cases, TT.
+ * The first line contains the number of test cases, T.
  * The T subsequent lines each describe a test case as two space-separated integers, N and K.
  * <p>
  * Constraints
@@ -24,7 +24,7 @@ import java.util.Scanner;
  * </ul>
  * Output Format
  * <p>
- * For each test case, print the total number of possible KK-element sequences of positive integers such that
+ * For each test case, print the total number of possible K-element sequences of positive integers such that
  * the sum of the elements in each sequence is N. As the answer may be large, output your answer modulo (10^9+7).
  */
 public class KElementSequences {
