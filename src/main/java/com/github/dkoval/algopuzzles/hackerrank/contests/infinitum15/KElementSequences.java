@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.hackerrank.challenges;
+package com.github.dkoval.algopuzzles.hackerrank.contests.infinitum15;
 
 import java.util.Scanner;
 

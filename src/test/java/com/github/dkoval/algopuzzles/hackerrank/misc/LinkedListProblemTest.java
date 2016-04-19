@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.hackerrank.challenges;
+package com.github.dkoval.algopuzzles.hackerrank.misc;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static com.github.dkoval.algopuzzles.hackerrank.challenges.LinkedListProblem.Node;
+import static com.github.dkoval.algopuzzles.hackerrank.misc.LinkedListProblem.Node;
 import static org.junit.Assert.assertEquals;
 
 /**
