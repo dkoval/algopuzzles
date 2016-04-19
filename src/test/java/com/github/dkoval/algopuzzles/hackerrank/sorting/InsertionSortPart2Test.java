@@ -32,6 +32,6 @@ public class InsertionSortPart2Test {
     @Test
     public void insertionSortPart2() throws Exception {
         InsertionSortPart2.insertionSortPart2(input);
-        assertArrayEquals(input, output);
+        assertArrayEquals(output, input);
     }
 }

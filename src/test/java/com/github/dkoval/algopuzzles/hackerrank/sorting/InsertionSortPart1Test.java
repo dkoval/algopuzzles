@@ -32,6 +32,6 @@ public class InsertionSortPart1Test {
     @Test
     public void insertIntoSorted() throws Exception {
         InsertionSortPart1.insertIntoSorted(input);
-        assertArrayEquals(input, output);
+        assertArrayEquals(output, input);
     }
 }
