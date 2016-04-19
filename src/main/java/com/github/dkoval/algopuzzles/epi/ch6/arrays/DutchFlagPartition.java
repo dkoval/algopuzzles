@@ -22,7 +22,7 @@ public class DutchFlagPartition {
 
     // NB: the problem is solved in such a way that the `pivotIndex` argument is not being used at all.
     public static void solution(int pivotIndex, List<Color> A) {
-        // The algorithm 3 indices r, w, b, maintaining the invariant r <= w <= b.
+        // The algorithm uses 3 indices r, w, b, maintaining the invariant r <= w <= b.
         // These 3 indices maintain 4 regions in the list:
         // - A[0..r-1] region contains RED elements;
         // - A[r, w-1] region contains WHITE elements;
