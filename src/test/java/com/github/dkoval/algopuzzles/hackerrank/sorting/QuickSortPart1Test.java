@@ -35,17 +35,17 @@ public class QuickSortPart1Test {
 
     private void assertArrayPartitions(int[] ar) {
         int p = ar[0];
-        int left = 0, equal = 0, right = 0;
+        int lesser = 0, equal = 0, greater = 0;
         for (int elem : ar) {
             if (elem < p) {
-                left++;
+                lesser++;
             } else if (elem > p) {
-                right++;
+                greater++;
             } else {
                 equal++;
             }
         }
-        assertTrue(left + equal + right == ar.length);
-        assertTrue(left <= equal  && equal <= right);
+        assertTrue(lesser + equal + greater == ar.length);
+        assertTrue(lesser <= equal  && equal <= greater);
     }
 }
