@@ -61,8 +61,8 @@ public class KElementSequences {
         // https://en.wikipedia.org/wiki/Composition_(combinatorics)#Number_of_compositions
         // C(n - 1, k - 1) = (n - 1)! / ((n - k)! * (k - 1)!)
         long c = factorial[n - 1];
-        c = (c * modInverse(factorial[k - 1])) % MOD;
         c = (c * modInverse(factorial[n - k])) % MOD;
+        c = (c * modInverse(factorial[k - 1])) % MOD;
         return c;
     }
 
