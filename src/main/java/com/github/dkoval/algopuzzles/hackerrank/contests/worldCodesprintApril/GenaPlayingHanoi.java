@@ -78,11 +78,10 @@ public class GenaPlayingHanoi {
             int[] topmostDiscs = new int[4];
             // Integer.MAX_VALUE denotes an empty rod here, i.e. disc of any size can be placed on it
             Arrays.fill(topmostDiscs, Integer.MAX_VALUE);
-            byte usedRodsMask = 0;
-            for (int i = n - 1; (i >= 0) && (usedRodsMask != 0b1111); i--) {
+            // go through the entire array to make sure the smallest discs are picked up
+            for (int i = n - 1; i >= 0; i--) {
                 int rod = (x >> i * 2) & 0b11;
                 topmostDiscs[rod] = i;
-                usedRodsMask |= 1 << rod;
             }
             // generate all the possible moves, taking into account the fact
             // that no disc may be placed on top of a smaller disc
@@ -92,7 +91,7 @@ public class GenaPlayingHanoi {
                         // can take the topmost disc from rod j and move it to the top of rod i
                         int mask = 0b11 << topmostDiscs[i] * 2;
                         int targetRod = j << topmostDiscs[i] * 2;
-                        // following updates the stateOfHanoi[] array represented by the stateOfHanoiHash x
+                        // following updates the stateOfHanoi[] array represented by the hash x
                         int y = (x & ~mask) | targetRod;
                         if (!moves.containsKey(y)) {
                             moves.put(y, numOfMoves + 1);
