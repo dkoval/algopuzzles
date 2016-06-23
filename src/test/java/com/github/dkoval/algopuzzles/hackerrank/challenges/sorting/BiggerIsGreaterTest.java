@@ -27,6 +27,7 @@ public class BiggerIsGreaterTest {
         return Arrays.asList(new Object[][]{
                 {"ab", "ba"},
                 {"bb", null},
+                {"cba", null},
                 {"hefg", "hegf"},
                 {"dhck", "dhkc"},
                 {"dkhc", "hcdk"},
