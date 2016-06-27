@@ -23,11 +23,10 @@ public class CommonChild {
         final int n = s2.length();
         // memo[i][j] contains length of LCS of S1[0..i-1] and s2[0..j-1]
         int[][] memo = new int[m + 1][n + 1];
-        for (int i = 0; i <= m; i++) {
-            for (int j = 0; j <= n; j++) {
-                if (i == 0 || j == 0) {
-                    memo[i][j] = 0;
-                } else if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+        // row 0 and column 0 are already initialised with 0
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
                     memo[i][j] = memo[i - 1][j - 1] + 1;
                 } else {
                     memo[i][j] = Math.max(memo[i - 1][j], memo[i][j - 1]);
