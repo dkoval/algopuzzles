@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * <a href="https://www.hackerrank.com/challenges/common-child">Problem:</a>
- * Max Score: 60 Difficulty: Dificult
+ * Max Score: 60 Difficulty: Difficult
  */
 public class CommonChild {
 
