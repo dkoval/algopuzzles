@@ -10,6 +10,11 @@ public class LuckBalance {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        int answer = solve(in);
+        System.out.println(answer);
+    }
+
+    static int solve(Scanner in) {
         int n = in.nextInt();
         int k = in.nextInt();
 
@@ -36,9 +41,8 @@ public class LuckBalance {
             numOfImportantWins--;
         }
 
-        int answer = important.stream().reduce(0, Integer::sum)
+        return important.stream().reduce(0, Integer::sum)
                 + unimportant.stream().reduce(0, Integer::sum)
                 - importantWins;
-        System.out.println(answer);
     }
 }
