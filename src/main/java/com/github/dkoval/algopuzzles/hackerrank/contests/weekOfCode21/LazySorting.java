@@ -61,12 +61,12 @@ public class LazySorting {
                 .boxed()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         // https://en.wikipedia.org/wiki/Permutation#Permutations_of_multisets
-        long p = factorial(seq.length);
+        long perm = factorial(seq.length);
         for (long uniqElemFreq : freq.values()) {
             // according to the problem description, max size of permutation is in [2..18] range
-            p /= factorial((int) uniqElemFreq);
+            perm /= factorial((int) uniqElemFreq);
         }
-        return 1.0 / p;
+        return 1.0 / perm;
     }
 
     private static long factorial(int n) {
