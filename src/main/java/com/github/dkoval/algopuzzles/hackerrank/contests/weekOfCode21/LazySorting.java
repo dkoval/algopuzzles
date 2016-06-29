@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
  * Max Score: 30 Difficulty: Moderate
  */
 public class LazySorting {
-    private static final double eps = 1E-18;
     private static final int maxSizeOfPermutation = 18;
     private static long[] factorial = factorials();
 
@@ -42,31 +41,25 @@ public class LazySorting {
 
     // Good reading: https://en.wikipedia.org/wiki/Expected_value
     private static double doSolve(int[] seq) {
-        // Expected value = 1 * p + 2 * q * p + 3 * q^2 * p + ...
-        final double p = p(seq), q = 1.0 - p;
-        double term = p, expectedValue = term;
-        int i = 2;
-        while (Double.compare(term, eps) > 0) {
-            term *= q;
-            expectedValue += i * term;
-            i++;
-        }
-        return expectedValue;
+        // http://www.cut-the-knot.org/Probability/LengthToFirstSuccess.shtml
+        // Expected value E = 1 * p + 2 * q * p + 3 * q^2 * p + ... = 1 / p
+        // On the other hand, p = 1 / numOfPerms, therefore E = numOfPerms
+        return numOfPerms(seq);
     }
 
     // Good reading: https://en.wikipedia.org/wiki/Permutation
-    private static double p(int[] seq) {
+    private static double numOfPerms(int[] seq) {
         // Note that the sequence may potentially have repeating elements
         Map<Integer, Long> freq = Arrays.stream(seq)
                 .boxed()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         // https://en.wikipedia.org/wiki/Permutation#Permutations_of_multisets
-        long perm = factorial(seq.length);
+        double numOfPerms = factorial(seq.length);
         for (long uniqElemFreq : freq.values()) {
             // according to the problem description, max size of permutation is in [2..18] range
-            perm /= factorial((int) uniqElemFreq);
+            numOfPerms /= factorial((int) uniqElemFreq);
         }
-        return 1.0 / perm;
+        return numOfPerms;
     }
 
     private static long factorial(int n) {

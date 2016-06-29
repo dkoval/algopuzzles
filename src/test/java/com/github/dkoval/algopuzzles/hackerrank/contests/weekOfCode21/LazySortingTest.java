@@ -26,10 +26,9 @@ public class LazySortingTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {new int[]{5, 2}, "2.000000"},
-                {new int[]{2, 2, 2, 3}, "4.000000"},
+                {new int[]{5, 1, 4, 2, 4, 2}, "180.000000"},
                 {new int[]{3, 3, 3, 1}, "4.000000"},
                 {new int[]{3, 3, 3, 3, 3}, "1.000000"},
-                {new int[]{3, 3, 3, 3, 3, 3, 3, 3, 3, 3}, "1.000000"},
         });
     }
 
