@@ -48,12 +48,12 @@ public class SynchronousShopping {
         }
     }
 
-    static class State {
+    static class VertexMetaInfo {
         final int v;
         final int mask;
         final int time;
 
-        public State(int v, int mask, int time) {
+        public VertexMetaInfo(int v, int mask, int time) {
             this.v = v;
             this.mask = mask;
             this.time = time;
@@ -87,53 +87,51 @@ public class SynchronousShopping {
             g.add(new Edge(y, x, w));
         }
 
-        int[][] time = calcMinTimes(g, mask, k);
-        return minSyncShoppingTime(time, n, k);
+        int[][] times = calcMinTimes(g, mask, k);
+        return minSyncShoppingTime(times, n, k);
     }
 
     private static int[][] calcMinTimes(Graph g, int[] mask, int k) {
         int n = g.numOfVertices();
-        int[][] time = initTime(n, k);
+        int[][] time = initTimes(n, k);
         time[1][mask[1]] = 0;
 
-        Queue<State> q = new LinkedList<>();
-        q.add(new State(1, mask[1], 0));
+        Queue<VertexMetaInfo> q = new LinkedList<>();
+        q.add(new VertexMetaInfo(1, mask[1], 0));
         while (!q.isEmpty()) {
-            State cur = q.remove();
+            VertexMetaInfo cur = q.remove();
             for (Edge e : g.adj(cur.v)) {
-                int toV = e.to;
-                int toMask = cur.mask | mask[toV];
-                int oldToTime = time[toV][toMask];
+                int to = e.to;
+                int toMask = cur.mask | mask[to];
+                int oldToTime = time[to][toMask];
                 int newToTime = cur.time + e.weight;
                 if (oldToTime > newToTime) {
-                    // TODO: discard old state?
-                    //q.remove(new State(toV, toMask, oldToTime));
-                    time[toV][toMask] = newToTime;
-                    q.add(new State(toV, toMask, newToTime));
+                    time[to][toMask] = newToTime;
+                    q.add(new VertexMetaInfo(to, toMask, newToTime));
                 }
             }
         }
         return time;
     }
 
-    private static int[][] initTime(int n, int k) {
+    private static int[][] initTimes(int n, int k) {
         int maxMask = 1 << k;
-        int[][] time = new int[n + 1][maxMask];
+        int[][] times = new int[n + 1][maxMask];
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j < maxMask; j++) {
-                time[i][j] = Integer.MAX_VALUE;
+                times[i][j] = Integer.MAX_VALUE;
             }
         }
-        return time;
+        return times;
     }
 
-    private static int minSyncShoppingTime(int time[][], int n, int k) {
-        int answer = Integer.MAX_VALUE;
+    private static int minSyncShoppingTime(int times[][], int n, int k) {
         int maxMask = 1 << k;
+        int answer = Integer.MAX_VALUE;
         for (int i = 0; i < maxMask; i++) {
             for (int j = 0; j < maxMask; j++) {
                 if ((i | j) == maxMask - 1) {
-                    answer = Math.min(answer, Math.max(time[n][i], time[n][j]));
+                    answer = Math.min(answer, Math.max(times[n][i], times[n][j]));
                 }
             }
         }
