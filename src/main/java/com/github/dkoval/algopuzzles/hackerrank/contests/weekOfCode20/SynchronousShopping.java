@@ -50,12 +50,12 @@ public class SynchronousShopping {
 
     static class State {
         final int v;
-        final int fishMask;
+        final int mask;
         final int time;
 
-        public State(int v, int fishMask, int time) {
+        public State(int v, int mask, int time) {
             this.v = v;
-            this.fishMask = fishMask;
+            this.mask = mask;
             this.time = time;
         }
     }
@@ -68,15 +68,18 @@ public class SynchronousShopping {
 
     static int solve(Scanner in) {
         int n = in.nextInt(), m = in.nextInt(), k = in.nextInt();
-        int[] fishMask = new int[n + 1];
+
+        // mask[i] refers to types of fish being sold at i-th shopping center
+        int[] mask = new int[n + 1];
         for (int i = 1; i <= n; i++) {
             int t = in.nextInt();
             for (int j = 0; j < t; j++) {
                 int typeOfFish = in.nextInt();
-                fishMask[i] |= 1 << (typeOfFish - 1);
+                mask[i] |= 1 << (typeOfFish - 1);
             }
         }
 
+        // models N shopping centers connected by M roads
         Graph g = new Graph(n + 1);
         for (int i = 0; i < m; i++) {
             int x = in.nextInt(), y = in.nextInt(), w = in.nextInt();
@@ -84,30 +87,29 @@ public class SynchronousShopping {
             g.add(new Edge(y, x, w));
         }
 
-        int[][] time = calcMinTimes(g, fishMask, k);
+        int[][] time = calcMinTimes(g, mask, k);
         return minSyncShoppingTime(time, n, k);
     }
 
-    private static int[][] calcMinTimes(Graph g, int[] fishMask, int k) {
+    private static int[][] calcMinTimes(Graph g, int[] mask, int k) {
         int n = g.numOfVertices();
         int[][] time = initTime(n, k);
-        time[1][fishMask[1]] = 0;
+        time[1][mask[1]] = 0;
 
         Queue<State> q = new LinkedList<>();
-        q.add(new State(1, fishMask[1], 0));
+        q.add(new State(1, mask[1], 0));
         while (!q.isEmpty()) {
             State cur = q.remove();
             for (Edge e : g.adj(cur.v)) {
-                int to = e.to;
-                int toFishMask = cur.fishMask | fishMask[to];
-
-                int oldToTime = time[to][toFishMask];
+                int toV = e.to;
+                int toMask = cur.mask | mask[toV];
+                int oldToTime = time[toV][toMask];
                 int newToTime = cur.time + e.weight;
                 if (oldToTime > newToTime) {
                     // TODO: discard old state?
-                    //q.remove(new State(to, toFishMask, oldToTime));
-                    time[to][toFishMask] = newToTime;
-                    q.add(new State(to, toFishMask, newToTime));
+                    //q.remove(new State(toV, toMask, oldToTime));
+                    time[toV][toMask] = newToTime;
+                    q.add(new State(toV, toMask, newToTime));
                 }
             }
         }
