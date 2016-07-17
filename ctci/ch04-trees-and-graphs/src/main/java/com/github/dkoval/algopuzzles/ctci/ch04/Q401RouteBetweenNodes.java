@@ -8,7 +8,7 @@ import java.util.Queue;
  * Q4.1 Route Between Nodes: Give a directed graph, design an algorithm to find out whether there is a
  * route between two nodes.
  */
-public class Q01RouteBetweenNodes {
+public class Q401RouteBetweenNodes {
 
     public static class Graph {
         private final List<Edge> adj[];

@@ -10,16 +10,16 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link Q01RouteBetweenNodes} solution.
+ * Tests {@link Q401RouteBetweenNodes} solution.
  */
 @RunWith(Parameterized.class)
-public class Q01RouteBetweenNodesTest {
-    private final Q01RouteBetweenNodes.Graph g;
+public class Q401RouteBetweenNodesTest {
+    private final Q401RouteBetweenNodes.Graph g;
     private final int start;
     private final int end;
     private final boolean answer;
 
-    public Q01RouteBetweenNodesTest(Q01RouteBetweenNodes.Graph g, int start, int end, boolean answer) {
+    public Q401RouteBetweenNodesTest(Q401RouteBetweenNodes.Graph g, int start, int end, boolean answer) {
         this.g = g;
         this.start = start;
         this.end = end;
@@ -33,19 +33,19 @@ public class Q01RouteBetweenNodesTest {
         });
     }
 
-    private static Q01RouteBetweenNodes.Graph createTestGraph() {
-        Q01RouteBetweenNodes.Graph g = new Q01RouteBetweenNodes.Graph(6);
-        g.add(new Q01RouteBetweenNodes.Edge(0, 1));
-        g.add(new Q01RouteBetweenNodes.Edge(0, 2));
-        g.add(new Q01RouteBetweenNodes.Edge(0, 3));
-        g.add(new Q01RouteBetweenNodes.Edge(3, 4));
-        g.add(new Q01RouteBetweenNodes.Edge(4, 5));
+    private static Q401RouteBetweenNodes.Graph createTestGraph() {
+        Q401RouteBetweenNodes.Graph g = new Q401RouteBetweenNodes.Graph(6);
+        g.add(new Q401RouteBetweenNodes.Edge(0, 1));
+        g.add(new Q401RouteBetweenNodes.Edge(0, 2));
+        g.add(new Q401RouteBetweenNodes.Edge(0, 3));
+        g.add(new Q401RouteBetweenNodes.Edge(3, 4));
+        g.add(new Q401RouteBetweenNodes.Edge(4, 5));
         return g;
     }
 
     @Test
     public void solution() {
-        boolean myAnswer = Q01RouteBetweenNodes.search(g, start, end);
+        boolean myAnswer = Q401RouteBetweenNodes.search(g, start, end);
         assertEquals(answer, myAnswer);
     }
 }

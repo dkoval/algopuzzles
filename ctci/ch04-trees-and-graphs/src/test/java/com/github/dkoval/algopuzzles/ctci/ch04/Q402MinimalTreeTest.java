@@ -10,13 +10,13 @@ import java.util.Collection;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Tests {@link Q02MinimalTree} solution.
+ * Tests {@link Q402MinimalTree} solution.
  */
 @RunWith(Parameterized.class)
-public class Q02MinimalTreeTest {
+public class Q402MinimalTreeTest {
     private final Integer elems[];
 
-    public Q02MinimalTreeTest(Integer[] elems) {
+    public Q402MinimalTreeTest(Integer[] elems) {
         this.elems = elems;
     }
 
@@ -29,15 +29,15 @@ public class Q02MinimalTreeTest {
 
     @Test
     public void solution() throws Exception {
-        Q02MinimalTree.TreeNode<Integer> root = Q02MinimalTree.createMinBST(elems);
+        Q402MinimalTree.TreeNode<Integer> root = Q402MinimalTree.createMinBST(elems);
         assertBST(root);
     }
 
-    private static <T extends Comparable<T>> void assertBST(Q02MinimalTree.TreeNode<T> root) {
+    private static <T extends Comparable<T>> void assertBST(Q402MinimalTree.TreeNode<T> root) {
         assertTrue("Expected Binary Search Tree", isBST(root));
     }
 
-    private static <T extends Comparable<T>> boolean isBST(Q02MinimalTree.TreeNode<T> root) {
+    private static <T extends Comparable<T>> boolean isBST(Q402MinimalTree.TreeNode<T> root) {
         if (root.left() != null) {
             if (root.data().compareTo(root.left().data()) < 0 || !isBST(root.left())) {
                 return false;

@@ -4,7 +4,7 @@ package com.github.dkoval.algopuzzles.ctci.ch04;
  * Q4.2 Minimal Tree: Given a sorted (increasing order) array with unique elements, write an
  * algorithm to create a binary search tree with a minimal height.
  */
-public class Q02MinimalTree {
+public class Q402MinimalTree {
 
     public static class TreeNode<T extends Comparable<T>> {
         private final T data;
