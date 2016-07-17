@@ -1,5 +1,6 @@
 package com.github.dkoval.algopuzzles.ctci.ch04;
 
+import com.github.dkoval.algopuzzles.ctci.lib.TreeNode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -29,15 +30,15 @@ public class Q402MinimalTreeTest {
 
     @Test
     public void solution() throws Exception {
-        Q402MinimalTree.TreeNode<Integer> root = Q402MinimalTree.createMinBST(elems);
+        TreeNode<Integer> root = Q402MinimalTree.createMinBST(elems);
         assertBST(root);
     }
 
-    private static <T extends Comparable<T>> void assertBST(Q402MinimalTree.TreeNode<T> root) {
+    private static <T extends Comparable<T>> void assertBST(TreeNode<T> root) {
         assertTrue("Expected Binary Search Tree", isBST(root));
     }
 
-    private static <T extends Comparable<T>> boolean isBST(Q402MinimalTree.TreeNode<T> root) {
+    private static <T extends Comparable<T>> boolean isBST(TreeNode<T> root) {
         if (root.left() != null) {
             if (root.data().compareTo(root.left().data()) < 0 || !isBST(root.left())) {
                 return false;

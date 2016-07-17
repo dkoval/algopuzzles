@@ -1,5 +1,6 @@
 package com.github.dkoval.algopuzzles.ctci.ch04;
 
+import com.github.dkoval.algopuzzles.ctci.lib.Graph;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -14,12 +15,12 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(Parameterized.class)
 public class Q401RouteBetweenNodesTest {
-    private final Q401RouteBetweenNodes.Graph g;
+    private final Graph g;
     private final int start;
     private final int end;
     private final boolean answer;
 
-    public Q401RouteBetweenNodesTest(Q401RouteBetweenNodes.Graph g, int start, int end, boolean answer) {
+    public Q401RouteBetweenNodesTest(Graph g, int start, int end, boolean answer) {
         this.g = g;
         this.start = start;
         this.end = end;
@@ -33,13 +34,13 @@ public class Q401RouteBetweenNodesTest {
         });
     }
 
-    private static Q401RouteBetweenNodes.Graph createTestGraph() {
-        Q401RouteBetweenNodes.Graph g = new Q401RouteBetweenNodes.Graph(6);
-        g.add(new Q401RouteBetweenNodes.Edge(0, 1));
-        g.add(new Q401RouteBetweenNodes.Edge(0, 2));
-        g.add(new Q401RouteBetweenNodes.Edge(0, 3));
-        g.add(new Q401RouteBetweenNodes.Edge(3, 4));
-        g.add(new Q401RouteBetweenNodes.Edge(4, 5));
+    private static Graph createTestGraph() {
+        Graph g = new Graph(6);
+        g.add(new Graph.Edge(0, 1));
+        g.add(new Graph.Edge(0, 2));
+        g.add(new Graph.Edge(0, 3));
+        g.add(new Graph.Edge(3, 4));
+        g.add(new Graph.Edge(4, 5));
         return g;
     }
 
