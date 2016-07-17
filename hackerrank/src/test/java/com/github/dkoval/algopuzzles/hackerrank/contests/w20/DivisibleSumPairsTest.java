@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.hackerrank.contests.weekOfCode20;
+package com.github.dkoval.algopuzzles.hackerrank.contests.w20;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,16 +10,16 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link NonDivisibleSubset} solution.
+ * Tests {@link DivisibleSumPairs} solution.
  */
 @RunWith(Parameterized.class)
-public class NonDivisibleSubsetTest {
-    private final int[] s;
+public class DivisibleSumPairsTest {
+    private final int[] a;
     private final int k;
     private final int answer;
 
-    public NonDivisibleSubsetTest(int[] s, int k, int answer) {
-        this.s = s;
+    public DivisibleSumPairsTest(int[] a, int k, int answer) {
+        this.a = a;
         this.k = k;
         this.answer = answer;
     }
@@ -27,13 +27,13 @@ public class NonDivisibleSubsetTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {new int[]{1, 7, 2, 4}, 3, 3},
+                {new int[]{1, 3, 2, 6, 1, 2}, 3, 5},
         });
     }
 
     @Test
     public void solution() throws Exception {
-        int myAnswer = NonDivisibleSubset.solve(s, k);
+        int myAnswer = DivisibleSumPairs.solve(a, k);
         assertEquals(answer, myAnswer);
     }
 }

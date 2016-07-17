@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.hackerrank.contests.weekOfCode20;
+package com.github.dkoval.algopuzzles.hackerrank.contests.w20;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

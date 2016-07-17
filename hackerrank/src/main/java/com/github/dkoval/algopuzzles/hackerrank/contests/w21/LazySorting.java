@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.hackerrank.contests.weekOfCode21;
+package com.github.dkoval.algopuzzles.hackerrank.contests.w21;
 
 import java.util.Arrays;
 import java.util.Map;
