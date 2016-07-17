@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.ctci.ch04TreesAndGraphs;
+package com.github.dkoval.algopuzzles.ctci.ch04;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.ctci.ch04TreesAndGraphs;
+package com.github.dkoval.algopuzzles.ctci.ch04;
 
 /**
  * Q4.2 Minimal Tree: Given a sorted (increasing order) array with unique elements, write an

@@ -5,17 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>algopuzzles</artifactId>
-        <groupId>com.github.dkoval</groupId>
+        <groupId>com.github.dkoval.ctci</groupId>
+        <artifactId>ctci</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.dkoval.ctci</groupId>
-    <artifactId>ctci</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>ch04-trees-and-graphs</module>
-    </modules>
+    <artifactId>ch04-trees-and-graphs</artifactId>
 
 </project>

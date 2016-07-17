@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.ctci.ch04TreesAndGraphs;
+package com.github.dkoval.algopuzzles.ctci.ch04;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
