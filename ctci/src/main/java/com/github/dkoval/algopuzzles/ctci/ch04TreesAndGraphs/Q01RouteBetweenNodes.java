@@ -45,6 +45,10 @@ public class Q01RouteBetweenNodes {
     }
 
     public static boolean search(Graph g, int start, int end) {
+        if (start == end) {
+            return true;
+
+        }
         Queue<Integer> q = new LinkedList<>();
         boolean visited[] = new boolean[g.numOfVertices()];
         // BFS
