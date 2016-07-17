@@ -38,7 +38,7 @@ public class Q01RouteBetweenNodes {
         private final int from;
         private final int to;
 
-        public Edge(int from, int to, int weight) {
+        public Edge(int from, int to) {
             this.from = from;
             this.to = to;
         }
