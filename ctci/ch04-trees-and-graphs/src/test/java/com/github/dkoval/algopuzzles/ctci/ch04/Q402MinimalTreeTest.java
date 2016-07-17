@@ -39,13 +39,13 @@ public class Q402MinimalTreeTest {
     }
 
     private static <T extends Comparable<T>> boolean isBST(TreeNode<T> root) {
-        if (root.left() != null) {
-            if (root.data().compareTo(root.left().data()) < 0 || !isBST(root.left())) {
+        if (root.getLeft() != null) {
+            if (root.getData().compareTo(root.getLeft().getData()) < 0 || !isBST(root.getLeft())) {
                 return false;
             }
         }
-        if (root.right() != null) {
-            if (root.data().compareTo(root.right().data()) >= 0 || !isBST(root.right())) {
+        if (root.getRight() != null) {
+            if (root.getData().compareTo(root.getRight().getData()) >= 0 || !isBST(root.getRight())) {
                 return false;
             }
         }

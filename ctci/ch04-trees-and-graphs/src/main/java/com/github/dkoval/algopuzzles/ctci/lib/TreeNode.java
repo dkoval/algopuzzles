@@ -12,23 +12,25 @@ public class TreeNode<T extends Comparable<T>> {
         this.data = data;
     }
 
-    public T data() {
+    public T getData() {
         return data;
     }
 
-    public TreeNode<T> left() {
+    public TreeNode<T> getLeft() {
         return left;
     }
 
-    public void left(TreeNode<T> left) {
+    public TreeNode<T> setLeft(TreeNode<T> left) {
         this.left = left;
+        return this;
     }
 
-    public TreeNode<T> right() {
+    public TreeNode<T> getRight() {
         return right;
     }
 
-    public void right(TreeNode<T> right) {
+    public TreeNode<T> setRight(TreeNode<T> right) {
         this.right = right;
+        return this;
     }
 }

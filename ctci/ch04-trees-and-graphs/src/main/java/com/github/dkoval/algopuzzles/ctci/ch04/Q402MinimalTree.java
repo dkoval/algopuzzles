@@ -18,8 +18,8 @@ public class Q402MinimalTree {
         }
         int mid = (start + end) / 2;
         TreeNode<T> root = new TreeNode<>(elems[mid]);
-        root.left(createMinBST(elems, start, mid - 1));
-        root.right(createMinBST(elems, mid + 1, end));
+        root.setLeft(createMinBST(elems, start, mid - 1));
+        root.setRight(createMinBST(elems, mid + 1, end));
         return root;
     }
 }
