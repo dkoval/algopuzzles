@@ -10,7 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.dkoval.ctci</groupId>
+    <groupId>com.github.dkoval.algopuzzles.ctci</groupId>
     <artifactId>ctci</artifactId>
     <packaging>pom</packaging>
 

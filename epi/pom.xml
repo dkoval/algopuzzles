@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.dkoval.epi</groupId>
+    <groupId>com.github.dkoval.algopuzzles.epi</groupId>
     <artifactId>epi</artifactId>
 
 </project>
