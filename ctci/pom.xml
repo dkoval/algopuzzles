@@ -10,8 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.dkoval.algopuzzles.ctci</groupId>
-    <artifactId>ctci</artifactId>
+    <artifactId>algopuzzles-ctci</artifactId>
     <packaging>pom</packaging>
 
     <modules>
