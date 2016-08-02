@@ -11,6 +11,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ch04-trees-and-graphs</artifactId>
+    <artifactId>algopuzzles-ctci-ch04-trees-and-graphs</artifactId>
 
 </project>
