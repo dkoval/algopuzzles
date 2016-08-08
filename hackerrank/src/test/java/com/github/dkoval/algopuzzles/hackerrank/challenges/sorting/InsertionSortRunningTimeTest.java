@@ -30,7 +30,7 @@ public class InsertionSortRunningTimeTest {
     }
 
     @Test
-    public void numOfShifts() throws Exception {
+    public void solution() throws Exception {
         int actualNumOfShifts = InsertionSortRunningTime.numOfShifts(input);
         assertEquals(numOfShifts, actualNumOfShifts);
     }

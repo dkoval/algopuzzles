@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class FunnyStringTest {
     private final String input;
-    private final boolean isFunny;
+    private final boolean answer;
 
-    public FunnyStringTest(String input, boolean isFunny) {
+    public FunnyStringTest(String input, boolean answer) {
         this.input = input;
-        this.isFunny = isFunny;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -31,8 +31,8 @@ public class FunnyStringTest {
     }
 
     @Test
-    public void isFunny() throws Exception {
-        boolean answer = FunnyString.isFunny(input);
-        assertEquals(isFunny, answer);
+    public void solution() throws Exception {
+        boolean myAnswer = FunnyString.isFunny(input);
+        assertEquals(answer, myAnswer);
     }
 }

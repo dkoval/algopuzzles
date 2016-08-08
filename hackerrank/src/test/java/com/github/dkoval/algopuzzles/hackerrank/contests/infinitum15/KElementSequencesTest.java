@@ -16,12 +16,12 @@ import static junit.framework.TestCase.assertEquals;
 public class KElementSequencesTest {
     private final int n;
     private final int k;
-    private final long expectedAnswer;
+    private final long answer;
 
-    public KElementSequencesTest(int n, int k, int expectedAnswer) {
+    public KElementSequencesTest(int n, int k, int answer) {
         this.n = n;
         this.k = k;
-        this.expectedAnswer = expectedAnswer;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -34,8 +34,8 @@ public class KElementSequencesTest {
     }
 
     @Test
-    public void solve() throws Exception {
-        long actualAnswer = KElementSequences.solve(n, k);
-        assertEquals(expectedAnswer, actualAnswer);
+    public void solution() throws Exception {
+        long myAnswer = KElementSequences.solve(n, k);
+        assertEquals(answer, myAnswer);
     }
 }

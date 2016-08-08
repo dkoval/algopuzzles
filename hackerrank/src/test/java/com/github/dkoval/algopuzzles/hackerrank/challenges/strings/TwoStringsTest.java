@@ -16,12 +16,12 @@ import static org.junit.Assert.assertEquals;
 public class TwoStringsTest {
     private final String first;
     private final String second;
-    private final boolean thereIsCommonSubstring;
+    private final boolean answer;
 
-    public TwoStringsTest(String first, String second, boolean thereIsCommonSubstring) {
+    public TwoStringsTest(String first, String second, boolean answer) {
         this.first = first;
         this.second = second;
-        this.thereIsCommonSubstring = thereIsCommonSubstring;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -33,8 +33,8 @@ public class TwoStringsTest {
     }
 
     @Test
-    public void thereIsCommonSubstring() throws Exception {
-        boolean answer = TwoStrings.thereIsCommonSubstring(first, second);
-        assertEquals(thereIsCommonSubstring, answer);
+    public void solution() throws Exception {
+        boolean myAnswer = TwoStrings.thereIsCommonSubstring(first, second);
+        assertEquals(answer, myAnswer);
     }
 }

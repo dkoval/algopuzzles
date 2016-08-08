@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class ReverseShuffleMergeTest {
     private final String input;
-    private final String expctedAnswer;
+    private final String answer;
 
-    public ReverseShuffleMergeTest(String input, String expctedAnswer) {
+    public ReverseShuffleMergeTest(String input, String answer) {
         this.input = input;
-        this.expctedAnswer = expctedAnswer;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -31,8 +31,8 @@ public class ReverseShuffleMergeTest {
     }
 
     @Test
-    public void solve() throws Exception {
-        String actualAnswer = ReverseShuffleMerge.solve(input);
-        assertEquals(expctedAnswer, actualAnswer);
+    public void solution() throws Exception {
+        String myAnswer = ReverseShuffleMerge.solve(input);
+        assertEquals(answer, myAnswer);
     }
 }

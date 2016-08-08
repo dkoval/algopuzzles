@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class SherlockAndAnagramsTest {
     private final String input;
-    private final int expectedNumOfUnorderedAnagrammaticPairs;
+    private final int answer;
 
-    public SherlockAndAnagramsTest(String input, int expectedNumOfUnorderedAnagrammaticPairs) {
+    public SherlockAndAnagramsTest(String input, int answer) {
         this.input = input;
-        this.expectedNumOfUnorderedAnagrammaticPairs = expectedNumOfUnorderedAnagrammaticPairs;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -36,8 +36,8 @@ public class SherlockAndAnagramsTest {
     }
 
     @Test
-    public void numOfAnagrammaticPairs() throws Exception {
-        int actualNumOfUnorderedAnagrammaticPairs = SherlockAndAnagrams.numOfUnorderedAnagrammaticPairs(input);
-        assertEquals(expectedNumOfUnorderedAnagrammaticPairs, actualNumOfUnorderedAnagrammaticPairs);
+    public void solution() throws Exception {
+        int myAnswer = SherlockAndAnagrams.numOfUnorderedAnagrammaticPairs(input);
+        assertEquals(answer, myAnswer);
     }
 }

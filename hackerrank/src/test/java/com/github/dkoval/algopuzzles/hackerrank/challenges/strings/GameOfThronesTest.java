@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class GameOfThronesTest {
     private final String input;
-    private final boolean anagramCanBePalindrome;
+    private final boolean answer;
 
-    public GameOfThronesTest(String input, boolean anagramCanBePalindrome) {
+    public GameOfThronesTest(String input, boolean answer) {
         this.input = input;
-        this.anagramCanBePalindrome = anagramCanBePalindrome;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -32,8 +32,8 @@ public class GameOfThronesTest {
     }
 
     @Test
-    public void anagramCanBePalindrome() throws Exception {
-        boolean answer = GameOfThrones.anagramCanBePalindrome(input);
-        assertEquals(anagramCanBePalindrome, answer);
+    public void solution() throws Exception {
+        boolean myAnswer = GameOfThrones.anagramCanBePalindrome(input);
+        assertEquals(answer, myAnswer);
     }
 }

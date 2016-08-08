@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class BearAndSteadyGeneTest {
     private final String input;
-    private final int expectedAnswer;
+    private final int answer;
 
-    public BearAndSteadyGeneTest(String input, int expectedAnswer) {
+    public BearAndSteadyGeneTest(String input, int answer) {
         this.input = input;
-        this.expectedAnswer = expectedAnswer;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -38,8 +38,8 @@ public class BearAndSteadyGeneTest {
     }
 
     @Test
-    public void minLengthOfSubstringReplacedToMakeGeneStable() throws Exception {
-        int answer = BearAndSteadyGene.minLengthOfSubstringReplacedToMakeGeneStable(input);
-        assertEquals(expectedAnswer, answer);
+    public void solution() throws Exception {
+        int myAnswer = BearAndSteadyGene.minLengthOfSubstringReplacedToMakeGeneStable(input);
+        assertEquals(answer, myAnswer);
     }
 }

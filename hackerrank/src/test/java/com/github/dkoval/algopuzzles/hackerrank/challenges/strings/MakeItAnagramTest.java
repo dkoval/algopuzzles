@@ -16,12 +16,12 @@ import static org.junit.Assert.assertEquals;
 public class MakeItAnagramTest {
     private final String first;
     private final String second;
-    private final int minNumOfCharDeletionsToMakeTwoStringsAnagrams;
+    private final int answer;
 
-    public MakeItAnagramTest(String first, String second, int minNumOfCharDeletionsToMakeTwoStringsAnagrams) {
+    public MakeItAnagramTest(String first, String second, int answer) {
         this.first = first;
         this.second = second;
-        this.minNumOfCharDeletionsToMakeTwoStringsAnagrams = minNumOfCharDeletionsToMakeTwoStringsAnagrams;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -35,8 +35,8 @@ public class MakeItAnagramTest {
     }
 
     @Test
-    public void minNumOfCharDeletionsToMakeTwoStringsAnagrams() throws Exception {
-        int answer = MakeItAnagram.minNumOfCharDeletionsToMakeTwoStringsAnagrams(first, second);
-        assertEquals(minNumOfCharDeletionsToMakeTwoStringsAnagrams, answer);
+    public void solution() throws Exception {
+        int myAnswer = MakeItAnagram.minNumOfCharDeletionsToMakeTwoStringsAnagrams(first, second);
+        assertEquals(answer, myAnswer);
     }
 }

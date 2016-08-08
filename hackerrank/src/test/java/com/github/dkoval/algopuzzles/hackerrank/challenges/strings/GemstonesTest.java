@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class GemstonesTest {
     private final String input;
-    private final int expectedNumOfGemElements;
+    private final int answer;
 
-    public GemstonesTest(String input, int expectedNumOfGemElements) {
+    public GemstonesTest(String input, int answer) {
         this.input = input;
-        this.expectedNumOfGemElements = expectedNumOfGemElements;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -35,9 +35,9 @@ public class GemstonesTest {
     }
 
     @Test
-    public void numOfGemElements() throws Exception {
-        int actualNumOfGemElements = Gemstones.numOfGemElements(
+    public void solution() throws Exception {
+        int myAnswer = Gemstones.numOfGemElements(
                 new Gemstones.InputSourceIterator(input));
-        assertEquals(expectedNumOfGemElements, actualNumOfGemElements);
+        assertEquals(answer, myAnswer);
     }
 }

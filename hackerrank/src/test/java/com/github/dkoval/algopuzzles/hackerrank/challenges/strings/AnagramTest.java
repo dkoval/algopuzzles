@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class AnagramTest {
     private final String input;
-    private final int expectedMinNumOfChangesToMakeAnagram;
+    private final int answer;
 
-    public AnagramTest(String input, int expectedMinNumOfChangesToMakeAnagram) {
+    public AnagramTest(String input, int answer) {
         this.input = input;
-        this.expectedMinNumOfChangesToMakeAnagram = expectedMinNumOfChangesToMakeAnagram;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -35,8 +35,8 @@ public class AnagramTest {
     }
 
     @Test
-    public void minNumOfChangesToMakeAnagram() throws Exception {
-        int actualMinNumOfChangesToMakeAnagram = Anagram.minNumOfChangesToMakeAnagram(input);
-        assertEquals(expectedMinNumOfChangesToMakeAnagram, actualMinNumOfChangesToMakeAnagram);
+    public void solution() throws Exception {
+        int myAnswer = Anagram.minNumOfChangesToMakeAnagram(input);
+        assertEquals(answer, myAnswer);
     }
 }

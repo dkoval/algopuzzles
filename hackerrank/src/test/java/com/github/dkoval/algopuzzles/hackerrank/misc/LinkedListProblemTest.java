@@ -16,11 +16,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class LinkedListProblemTest {
     private final int[] input;
-    private final int[] expected;
+    private final int[] answer;
 
-    public LinkedListProblemTest(int[] input, int[] expected) {
+    public LinkedListProblemTest(int[] input, int[] answer) {
         this.input = input;
-        this.expected = expected;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -38,9 +38,9 @@ public class LinkedListProblemTest {
     }
 
     @Test
-    public void removeDuplicates() throws Exception {
+    public void solution() throws Exception {
         Node initial = Node.create(input);
-        Node updated = LinkedListProblem.removeDuplicates(initial);
-        assertEquals(Node.create(expected), updated);
+        Node myAnswer = LinkedListProblem.removeDuplicates(initial);
+        assertEquals(Node.create(answer), myAnswer);
     }
 }

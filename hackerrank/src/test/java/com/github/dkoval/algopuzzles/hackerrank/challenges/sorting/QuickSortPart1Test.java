@@ -28,7 +28,7 @@ public class QuickSortPart1Test {
     }
 
     @Test
-    public void partitionInPlace() throws Exception {
+    public void solution() throws Exception {
         QuickSortPart1.partitionInPlace(input);
         assertArrayPartitions(input);
     }

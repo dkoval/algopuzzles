@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class LoveLetterMysteryTest {
     private final String input;
-    private final int expectedMinNumOfOpsToFormPalindrome;
+    private final int answer;
 
-    public LoveLetterMysteryTest(String input, int expectedMinNumOfOpsToFormPalindrome) {
+    public LoveLetterMysteryTest(String input, int answer) {
         this.input = input;
-        this.expectedMinNumOfOpsToFormPalindrome = expectedMinNumOfOpsToFormPalindrome;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -33,8 +33,8 @@ public class LoveLetterMysteryTest {
     }
 
     @Test
-    public void minNumOfOpsToFormPalindrome() throws Exception {
-        int actualMinNumOfOpsToFormPalindrome = LoveLetterMystery.minNumOfOpsToFormPalindrome(input);
-        assertEquals(expectedMinNumOfOpsToFormPalindrome, actualMinNumOfOpsToFormPalindrome);
+    public void solution() throws Exception {
+        int myAnswer = LoveLetterMystery.minNumOfOpsToFormPalindrome(input);
+        assertEquals(answer, myAnswer);
     }
 }

@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class PangramsTest {
     private final String input;
-    private final boolean isPangram;
+    private final boolean answer;
 
-    public PangramsTest(String input, boolean isPangram) {
+    public PangramsTest(String input, boolean answer) {
         this.input = input;
-        this.isPangram = isPangram;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -32,7 +32,7 @@ public class PangramsTest {
 
     @Test
     public void isPangram() throws Exception {
-        boolean answer = Pangrams.isPangram(input);
-        assertEquals(isPangram, answer);
+        boolean myAnswer = Pangrams.isPangram(input);
+        assertEquals(answer, myAnswer);
     }
 }

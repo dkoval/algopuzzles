@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class PalindromeIndexTest {
     private final String input;
-    private final int expectedPalindromeIndex;
+    private final int answer;
 
-    public PalindromeIndexTest(String input, int expectedPalindromeIndex) {
+    public PalindromeIndexTest(String input, int answer) {
         this.input = input;
-        this.expectedPalindromeIndex = expectedPalindromeIndex;
+        this.answer = answer;
     }
 
     @Parameterized.Parameters
@@ -32,8 +32,8 @@ public class PalindromeIndexTest {
     }
 
     @Test
-    public void palindromeIndex() throws Exception {
-        int actualPalindromeIndex = PalindromeIndex.palindromeIndex(input);
-        assertEquals(expectedPalindromeIndex, actualPalindromeIndex);
+    public void solution() throws Exception {
+        int myAnswer = PalindromeIndex.palindromeIndex(input);
+        assertEquals(answer, myAnswer);
     }
 }
