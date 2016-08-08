@@ -4,9 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -32,11 +29,11 @@ public class BearAndSteadyGeneTest {
                 {"GGAAATTC", 1},
                 {"GGAATTCC", 0},
                 // Downloaded Test Case #4
-                {new String(Files.readAllBytes(
+                /*{new String(Files.readAllBytes(
                         Paths.get(BearAndSteadyGeneTest.class
-                                .getResource("/com/github/dkoval/algopuzzles/hackerrank/strings/BearAndSteadyGene-TestCase4.txt")
+                                .getResource("com/github/dkoval/algopuzzles/hackerrank/challenges/strings/BearAndSteadyGene-TestCase4.txt")
                                 .toURI())),
-                        StandardCharsets.UTF_8), 206},
+                        StandardCharsets.UTF_8), 206},*/
         });
     }
 

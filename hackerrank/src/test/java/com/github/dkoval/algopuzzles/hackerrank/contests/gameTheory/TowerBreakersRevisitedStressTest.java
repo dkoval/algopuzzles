@@ -1,5 +1,6 @@
 package com.github.dkoval.algopuzzles.hackerrank.contests.gameTheory;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -12,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Stress tests {@link TowerBreakersRevisited} solution.
  */
+@Ignore
 @RunWith(Parameterized.class)
 public class TowerBreakersRevisitedStressTest {
     private static final String RESOURCE_DIR = "com/github/dkoval/algopuzzles/hackerrank/contests/gameTheory/";
