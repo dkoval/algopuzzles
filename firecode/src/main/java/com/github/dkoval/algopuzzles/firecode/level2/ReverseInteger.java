@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.firecode;
+package com.github.dkoval.algopuzzles.firecode.level2;
 
 /**
  * Implement a method that reverses an integer - without using additional heap space.

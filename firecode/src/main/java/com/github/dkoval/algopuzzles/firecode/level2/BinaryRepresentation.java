@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.firecode;
+package com.github.dkoval.algopuzzles.firecode.level2;
 
 /**
  * Write a method to compute the binary representation of a positive integer.

@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.firecode;
+package com.github.dkoval.algopuzzles.firecode.level2;
 
 /**
  * Write a method {@link #isAnagram(String, String)} that checks if two lowercase input Strings are anagrams of each other.

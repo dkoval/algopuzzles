@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.firecode;
+package com.github.dkoval.algopuzzles.firecode.level2;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

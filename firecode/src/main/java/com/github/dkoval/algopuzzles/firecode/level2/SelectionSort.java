@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.firecode;
+package com.github.dkoval.algopuzzles.firecode.level2;
 
 /**
  * Selection sort offers improved performance over bubble sort, especially for arrays with a large number of elements.

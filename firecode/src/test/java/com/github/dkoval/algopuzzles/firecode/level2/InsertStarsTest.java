@@ -1,4 +1,4 @@
-package com.github.dkoval.algopuzzles.firecode;
+package com.github.dkoval.algopuzzles.firecode.level2;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,14 +10,14 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link BinaryRepresentation} solution.
+ * Tests {@link InsertStars} solution.
  */
 @RunWith(Parameterized.class)
-public class BinaryRepresentationTest {
-    private final int input;
+public class InsertStarsTest {
+    private final String input;
     private final String expected;
 
-    public BinaryRepresentationTest(int input, String expected) {
+    public InsertStarsTest(String input, String expected) {
         this.input = input;
         this.expected = expected;
     }
@@ -25,17 +25,17 @@ public class BinaryRepresentationTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {15, "1111"},
-                {10, "1010"},
-                {52, "110100"},
-                {0, "0"},
-                {1, "1"},
+                {"bbb", "b*b*b"},
+                {"abbba", "ab*b*ba"},
+                {"b", "b"},
+                {"abba", "ab*ba"},
+                {null, null},
         });
     }
 
     @Test
-    public void computeBinary() throws Exception {
-        String actual = BinaryRepresentation.computeBinary(input);
+    public void insertPaiOrStar() throws Exception {
+        String actual = InsertStars.insertPairStar(input);
         assertEquals(expected, actual);
     }
 }
