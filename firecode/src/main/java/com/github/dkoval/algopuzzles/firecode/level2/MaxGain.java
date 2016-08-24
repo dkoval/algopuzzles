@@ -8,15 +8,11 @@ package com.github.dkoval.algopuzzles.firecode.level2;
 public class MaxGain {
 
     public static int maxGain(int[] a) {
-        int minElemPos = 0, maxElemPos = 0;
+        int maxGain = 0, min = a[0];
         for (int i = 1; i < a.length; i++) {
-            if (a[i] < a[minElemPos]) {
-                minElemPos = i;
-            }
-            if (a[i] > a[maxElemPos]) {
-                maxElemPos = i;
-            }
+            min = Math.min(min, a[i]);
+            maxGain = Math.max(maxGain, a[i] - min);
         }
-        return (maxElemPos > minElemPos) ? a[maxElemPos] - a[minElemPos] : 0;
+        return maxGain;
     }
 }
