@@ -1,6 +1,5 @@
 package com.github.dkoval.algopuzzles.firecode.level2;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,17 +12,15 @@ import java.util.Map;
 public class CoupleSum {
 
     public static int[] coupleSum(int[] numbers, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> alreadySeenNumbers = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
-            map.put(numbers[i], i);
-            Integer j = map.get(target - numbers[i]);
+            int left = target - numbers[i];
+            Integer j = alreadySeenNumbers.get(left);
             if (j != null) {
                 // since output is not zero-indexed, increment by 1 here
-                int[] pairOfIndices = {++i, ++j};
-                // index1 must be less than index2
-                Arrays.sort(pairOfIndices);
-                return pairOfIndices;
+                return new int[]{++j, ++i};
             }
+            alreadySeenNumbers.put(numbers[i], i);
         }
         return new int[0];
     }
