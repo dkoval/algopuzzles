@@ -9,7 +9,7 @@ import com.github.dkoval.algopuzzles.firecode.lib.ListNode;
  * 1->2->3->4->*1 ==> 2->3->4->*2
  * </pre>
  */
-public class DeleteHeadNodeOfCircularLinkedList {
+public class DeleteHeadOfCircularLinkedList {
 
     public static ListNode deleteAtHead(ListNode head) {
         if (head == null) {
