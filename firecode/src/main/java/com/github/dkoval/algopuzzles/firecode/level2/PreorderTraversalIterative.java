@@ -11,7 +11,7 @@ import java.util.Deque;
  * Mark a node as visited by adding its data to a list - Arraylist<Integer> preorderedList.
  * Return this list.
  */
-public class IterativePreorderTraversalOfBinaryTree {
+public class PreorderTraversalIterative {
 
     public static ArrayList<Integer> preorderItr(TreeNode root) {
         ArrayList<Integer> preorderedList = new ArrayList<>();

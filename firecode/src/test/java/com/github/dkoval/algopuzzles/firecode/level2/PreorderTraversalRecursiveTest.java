@@ -14,14 +14,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Tests {@link IterativePreorderTraversalOfBinaryTree} solution.
+ * Tests {@link PreorderTraversalRecursive} solution.
  */
 @RunWith(Parameterized.class)
-public class IterativePreorderTraversalOfBinaryTreeTest {
+public class PreorderTraversalRecursiveTest {
     private final TreeNode root;
     private final List<Integer> expected;
 
-    public IterativePreorderTraversalOfBinaryTreeTest(TreeNode root, List<Integer> expected) {
+    public PreorderTraversalRecursiveTest(TreeNode root, List<Integer> expected) {
         this.root = root;
         this.expected = expected;
     }
@@ -50,8 +50,9 @@ public class IterativePreorderTraversalOfBinaryTreeTest {
     }
 
     @Test
-    public void preorderItr() throws Exception {
-        List<Integer> actual = IterativePreorderTraversalOfBinaryTree.preorderItr(root);
-        assertThat(actual, is(expected));
+    public void preorder() throws Exception {
+        PreorderTraversalRecursive problem = new PreorderTraversalRecursive();
+        problem.preorder(root);
+        assertThat(problem.preorderedList, is(expected));
     }
 }
