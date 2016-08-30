@@ -34,18 +34,22 @@ public class Q402MinimalTreeTest {
         assertBST(root);
     }
 
-    private static <T extends Comparable<T>> void assertBST(TreeNode<T> root) {
-        assertTrue("Expected Binary Search Tree", isBST(root));
+    private static void assertBST(TreeNode<Integer> root) {
+        assertTrue("Expected Binary Search Tree", isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 
-    private static <T extends Comparable<T>> boolean isBST(TreeNode<T> root) {
+    private static <T extends Comparable<T>> boolean isBST(TreeNode<T> root, T min, T max) {
+        return (root == null) || isBSTHelper(root, min, max);
+    }
+
+    private static <T extends Comparable<T>> boolean isBSTHelper(TreeNode<T> root, T min, T max) {
         if (root.getLeft() != null) {
-            if (root.getData().compareTo(root.getLeft().getData()) < 0 || !isBST(root.getLeft())) {
+            if (root.getData().compareTo(root.getLeft().getData()) < 0 || !isBSTHelper(root.getLeft(), min, root.getData())) {
                 return false;
             }
         }
         if (root.getRight() != null) {
-            if (root.getData().compareTo(root.getRight().getData()) >= 0 || !isBST(root.getRight())) {
+            if (root.getData().compareTo(root.getRight().getData()) >= 0 || !isBSTHelper(root.getRight(), root.getData(), max)) {
                 return false;
             }
         }
