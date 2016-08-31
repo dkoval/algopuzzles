@@ -18,10 +18,13 @@ public class BSTValidation {
         if (root.left != null && !doValidateBST(root.left, min, root.data)) {
             return false;
         }
-        return !(root.right != null && !doValidateBST(root.right, root.data, max));
+        if (root.right != null && !doValidateBST(root.right, root.data, max)) {
+            return false;
+        }
+        return true;
     }
 
-    private static boolean doValidateBSTOptmized(TreeNode root, int min, int max) {
+    private static boolean doValidateBSTOptimized(TreeNode root, int min, int max) {
         return (root.data >= min && root.data <= max)
                 && (root.left == null || doValidateBST(root.left, min, root.data))
                 && (root.right == null || doValidateBST(root.right, root.data, max));
