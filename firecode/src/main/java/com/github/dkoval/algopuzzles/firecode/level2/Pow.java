@@ -13,13 +13,6 @@ public class Pow {
         return (n < 0) ? 1 / doPowRecursive(x, -n) : doPowRecursive(x, n);
     }
 
-    public static double powIterative(double x, int n) {
-        if (Double.compare(x, 0d) == 0) {
-            return 0d;
-        }
-        return (n < 0) ? 1 / doPowIterative(x, -n) : doPowIterative(x, n);
-    }
-
     /* n is expected to be a non-negative number here */
     private static double doPowRecursive(double x, int n) {
         if (n == 0) {
@@ -27,6 +20,13 @@ public class Pow {
         }
         double half = doPowRecursive(x, n / 2);
         return (n % 2 == 0) ? half * half : half * half * x;
+    }
+
+    public static double powIterative(double x, int n) {
+        if (Double.compare(x, 0d) == 0) {
+            return 0d;
+        }
+        return (n < 0) ? 1 / doPowIterative(x, -n) : doPowIterative(x, n);
     }
 
     /* n is expected to be a non-negative number here */
