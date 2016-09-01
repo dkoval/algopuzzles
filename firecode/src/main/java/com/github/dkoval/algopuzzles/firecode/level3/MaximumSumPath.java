@@ -23,10 +23,9 @@ public class MaximumSumPath {
         }
         int leftSum = doMaxSumPath(root.left, maxSumHolder);
         int rightSum = doMaxSumPath(root.right, maxSumHolder);
-        // the return value of this node that will be fed to the calling node
-        int curr = Math.max(leftSum, rightSum) + root.data;
         // maximum sum path obtained till this point
         maxSumHolder[0] = Math.max(maxSumHolder[0], leftSum + root.data + rightSum);
-        return curr;
+        // the return value of this node that will be fed to the calling node
+        return Math.max(leftSum, rightSum) + root.data;
     }
 }
