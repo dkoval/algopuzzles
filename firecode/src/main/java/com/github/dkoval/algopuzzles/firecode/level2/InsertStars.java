@@ -11,9 +11,9 @@ public class InsertStars {
             return s;
         }
         if (s.charAt(0) == s.charAt(1)) {
-            return s.substring(0, 1) + '*' + insertPairStar(s.substring(1));
+            return s.charAt(0) + "*" + insertPairStar(s.substring(1));
         } else {
-            return s.substring(0, 1) + insertPairStar(s.substring(1));
+            return s.charAt(0) + insertPairStar(s.substring(1));
         }
     }
 }
