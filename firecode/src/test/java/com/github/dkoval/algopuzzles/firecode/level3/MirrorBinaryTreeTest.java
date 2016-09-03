@@ -5,7 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -39,30 +42,10 @@ public class MirrorBinaryTreeTest {
         });
     }
 
-    private static List<Integer> levelByLevelOrder(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        List<Integer> nodes = new LinkedList<>();
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            TreeNode n = q.remove();
-            nodes.add(n.data);
-            if (n.left != null) {
-                q.add(n.left);
-            }
-            if (n.right != null) {
-                q.add(n.right);
-            }
-        }
-        return nodes;
-    }
-
     @Test
     public void mirror() throws Exception {
         TreeNode mirror = MirrorBinaryTree.mirror(root);
-        List<Integer> actualNodesList = levelByLevelOrder(mirror);
+        List<Integer> actualNodesList = TreeNode.levelOrder(mirror);
         assertThat(actualNodesList, is(expectedNodeList));
     }
 }
