@@ -11,14 +11,14 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link BSTValidation} solution.
+ * Tests {@link BSTValidationRecursive} solution.
  */
 @RunWith(Parameterized.class)
-public class BSTValidationTest {
+public class BSTValidationRecursiveTest {
     private final TreeNode root;
     private final boolean expected;
 
-    public BSTValidationTest(TreeNode root, boolean expected) {
+    public BSTValidationRecursiveTest(TreeNode root, boolean expected) {
         this.root = root;
         this.expected = expected;
     }
@@ -42,7 +42,7 @@ public class BSTValidationTest {
 
     @Test
     public void validateBST() throws Exception {
-        boolean actual = BSTValidation.validateBST(root);
+        boolean actual = BSTValidationRecursive.validateBST(root);
         assertEquals(expected, actual);
     }
 }

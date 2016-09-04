@@ -5,7 +5,7 @@ import com.github.dkoval.algopuzzles.firecode.lib.TreeNode;
 /**
  * Given the root node of a Binary Tree, determine if it is a Binary Search Tree.
  */
-public class BSTValidation {
+public class BSTValidationRecursive {
 
     public static boolean validateBST(TreeNode root) {
         return (root == null) || doValidateBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
