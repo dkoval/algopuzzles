@@ -2,9 +2,7 @@ package com.github.dkoval.algopuzzles.firecode.level3;
 
 import com.github.dkoval.algopuzzles.firecode.lib.TreeNode;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -25,28 +23,26 @@ public class FullTreeDecompression {
         if (str == null || str.isEmpty() || str.startsWith("*")) {
             return null;
         }
-        List<Integer> seq = mapTokens(str.split(","));
-        int i = 0;
-        TreeNode root = (seq.get(i) != null) ? new TreeNode(seq.get(i), null, null) : null;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while (i < seq.size() - 1) {
-            TreeNode n = q.remove();
-            if (n != null) {
-                Integer leftData = seq.get(i + 1);
-                Integer rightData = seq.get(i + 2);
-                n.left = (leftData != null) ? new TreeNode(leftData, null, null) : null;
-                n.right = (rightData != null) ? new TreeNode(rightData, null, null) : null;
-                q.add(n.left);
-                q.add(n.right);
+        Queue<Integer> availableNums = mapTokens(str.split(","));
+        TreeNode root = new TreeNode(availableNums.remove(), null, null);
+        Queue<TreeNode> parents = new LinkedList<>();
+        parents.add(root);
+        while (!availableNums.isEmpty()) {
+            Integer leftNum = availableNums.remove();
+            Integer rightNum = availableNums.remove();
+            TreeNode p = parents.remove();
+            if (p != null) {
+                p.left = (leftNum != null) ? new TreeNode(leftNum, null, null) : null;
+                p.right = (rightNum != null) ? new TreeNode(rightNum, null, null) : null;
+                parents.add(p.left);
+                parents.add(p.right);
             }
-            i += 2;
         }
         return root;
     }
 
-    private static List<Integer> mapTokens(String[] tokens) {
-        List<Integer> res = new ArrayList<>(tokens.length);
+    private static Queue<Integer> mapTokens(String[] tokens) {
+        Queue<Integer> res = new LinkedList<>();
         for (String token : tokens) {
             Integer num = "*".equals(token) ? null : Integer.parseInt(token);
             res.add(num);
