@@ -12,37 +12,46 @@ public class DeleteNodeAtPositionInDoublyLinkedList {
         if (head == null) {
             return null;
         }
-        DoublyLinkedNode prev = head.prev, curr = head;
-        boolean found = false;
+        DoublyLinkedNode curr = findAtPos(head, pos);
+        if (curr == null) {
+            // not found
+            return head;
+        }
+        return deleteNode(head, curr);
+    }
+
+    private static DoublyLinkedNode findAtPos(DoublyLinkedNode head, int pos) {
+        DoublyLinkedNode curr = head;
         int i = 1;
         while (curr != null) {
-            if (i++ == pos) {
-                found = true;
+            if (i == pos) {
                 break;
             }
-            prev = curr;
             curr = curr.next;
+            i++;
         }
-        if (found) {
-            if (curr == head) {
-                // delete the head element
-                head = curr.next;
-                if (head != null) {
-                    // make sure the list didn't get empty
-                    head.prev = null;
-                }
-            } else if (curr.next == null) {
-                // delete the tail element
-                prev.next = null;
-            } else {
-                // delete the middle element
-                prev.next = curr.next;
-                curr.next.prev = prev;
+        return (i == pos) ? curr : null;
+    }
+
+    private static DoublyLinkedNode deleteNode(DoublyLinkedNode head, DoublyLinkedNode curr) {
+        if (curr == head) {
+            // delete the head node
+            head = curr.next;
+            if (head != null) {
+                // make sure the list didn't get empty
+                head.prev = null;
             }
-            // reclaim memory
-            curr.next = null;
-            curr.prev = null;
+        } else if (curr.next == null) {
+            // delete the tail node
+            curr.prev.next = null;
+        } else {
+            // delete a middle node
+            curr.prev.next = curr.next;
+            curr.next.prev = curr.prev;
         }
+        // reclaim memory
+        curr.next = null;
+        curr.prev = null;
         return head;
     }
 }
