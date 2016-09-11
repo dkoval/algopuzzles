@@ -1,6 +1,5 @@
 package com.github.dkoval.algopuzzles.firecode.lib;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class ListNode {
 
     public static List<Integer> toList(ListNode head) {
         if (head == null) {
-            return Collections.emptyList();
+            return null;
         }
         List<Integer> nodes = new LinkedList<>();
         ListNode curr = head;
