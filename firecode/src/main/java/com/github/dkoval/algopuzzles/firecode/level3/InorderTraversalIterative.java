@@ -22,17 +22,18 @@ public class InorderTraversalIterative {
         TreeNode curr = root;
         while (true) {
             // first node to be visited will be the left one
-            while (curr != null) {
+            if (curr != null) {
                 stack.push(curr);
                 curr = curr.left;
+            } else {
+                if (stack.isEmpty()) {
+                    break;
+                }
+                curr = stack.pop();
+                inorderList.add(curr.data);
+                // jump to the right node and repeat the whole procedure once again
+                curr = curr.right;
             }
-            if (stack.isEmpty()) {
-                break;
-            }
-            curr = stack.pop();
-            inorderList.add(curr.data);
-            // jump to the right node and repeat the whole procedure once again
-            curr = curr.right;
         }
         return inorderList;
     }
