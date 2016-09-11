@@ -15,9 +15,6 @@ public class InorderTraversalIterative {
 
     public static ArrayList<Integer> inorderItr(TreeNode root) {
         ArrayList<Integer> inorderList = new ArrayList<>();
-        if (root == null) {
-            return inorderList;
-        }
         Deque<TreeNode> stack = new LinkedList<>();
         TreeNode curr = root;
         while (true) {
