@@ -2,15 +2,15 @@ package com.github.dkoval.algopuzzles.firecode.level3;
 
 /**
  * You are given a square 2D image matrix where each integer represents a pixel.
- * Write a method rotateSquareImageCCW to rotate the image counterclockwise - in-place.
- * Rotating an image counterclockwise can be achieved by taking the transpose of the image matrix
- * and then flipping it on its horizontal axis.
+ * Write a method rotateSquareImageCW to rotate the image clockwise - in-place.
+ * Rotating an image clockwise can be achieved by taking the transpose of the image matrix
+ * and then flipping it on its vertical axis.
  */
-public class RotateSquareImageCounterclockwise {
+public class RotateSquareImageClockwise {
 
-    public static void rotateSquareImageCCW(int[][] matrix) {
+    public static void rotateSquareImageCW(int[][] matrix) {
         int[][] tr = transpose(matrix);
-        flipOnHorizontalAxis(tr);
+        flipOnVerticalAxis(tr);
     }
 
     private static int[][] transpose(int[][] matrix) {
@@ -24,14 +24,14 @@ public class RotateSquareImageCounterclockwise {
         return matrix;
     }
 
-    private static int[][] flipOnHorizontalAxis(int[][] matrix) {
+    private static int[][] flipOnVerticalAxis(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        int equator = m / 2;
-        for (int j = 0; j < n; j++) {
-            for (int i = 0; i < equator; i++) {
+        int greenwich = n / 2;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < greenwich; j++) {
                 int tmp = matrix[i][j];
-                matrix[i][j] = matrix[m - i - 1][j];
-                matrix[m - i - 1][j] = tmp;
+                matrix[i][j] = matrix[i][n - j - 1];
+                matrix[i][n - j - 1] = tmp;
             }
         }
         return matrix;
