@@ -27,7 +27,7 @@ public class DoublyLinkedNode {
     }
 
     public static List<Integer> toList(DoublyLinkedNode head) {
-        if (head ==  null) {
+        if (head == null) {
             return null;
         }
         DoublyLinkedNode curr = head;

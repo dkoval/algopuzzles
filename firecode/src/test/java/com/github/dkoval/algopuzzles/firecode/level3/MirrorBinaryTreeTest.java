@@ -29,7 +29,7 @@ public class MirrorBinaryTreeTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {null, Collections.emptyList()},
+                {null, null},
                 {new TreeNode(1, null, null), Collections.singletonList(1)},
                 {new TreeNode(1,
                         new TreeNode(2, null, null),

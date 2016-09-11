@@ -1,6 +1,5 @@
 package com.github.dkoval.algopuzzles.firecode.lib;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -18,7 +17,7 @@ public class TreeNode {
 
     public static List<Integer> levelOrder(TreeNode root) {
         if (root == null) {
-            return Collections.emptyList();
+            return null;
         }
         List<Integer> nodes = new LinkedList<>();
         Queue<TreeNode> q = new LinkedList<>();
