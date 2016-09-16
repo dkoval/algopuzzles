@@ -55,4 +55,10 @@ public class DeleteNodeAtPositionInLinkedListTest {
         ListNode actual = DeleteNodeAtPositionInLinkedList.deleteAtMiddle(head, position);
         assertThat(toJavaList(actual), is(toJavaList(expected)));
     }
+
+    @Test
+    public void deleteAtMiddleIterative() throws Exception {
+        ListNode actual = DeleteNodeAtPositionInLinkedList.deleteAtMiddleIterative(head, position);
+        assertThat(toJavaList(actual), is(toJavaList(expected)));
+    }
 }

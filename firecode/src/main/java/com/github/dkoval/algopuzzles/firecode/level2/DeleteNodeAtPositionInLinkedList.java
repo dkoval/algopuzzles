@@ -19,4 +19,25 @@ public class DeleteNodeAtPositionInLinkedList {
         head.next = deleteAtMiddle(head.next, position - 1);
         return head;
     }
+
+    public static ListNode deleteAtMiddleIterative(ListNode head, int position) {
+        if (head == null) {
+            return null;
+        }
+        if (position == 1) {
+            return head.next;
+        }
+        ListNode curr = head, prev = null;
+        int i = 1;
+        while (curr != null) {
+            if (i == position) {
+                prev.next = curr.next;
+                break;
+            }
+            prev = curr;
+            curr = curr.next;
+            i++;
+        }
+        return head;
+    }
 }
