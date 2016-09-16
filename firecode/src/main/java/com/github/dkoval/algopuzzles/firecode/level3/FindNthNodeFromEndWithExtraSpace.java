@@ -9,10 +9,10 @@ import java.util.Map;
  * Given a singly-linked list, implement the method that returns Nth node from the end of the list.
  * You are allowed to use extra memory for this implementation.
  */
-public class FindNthNodeFromEnd {
+public class FindNthNodeFromEndWithExtraSpace {
 
     public static ListNode findNthNodeFromEnd(ListNode head, int n) {
-        if (head == null) {
+        if (head == null || n <= 0) {
             return null;
         }
         Map<Integer, ListNode> alreadySeenNodes = new HashMap<>();

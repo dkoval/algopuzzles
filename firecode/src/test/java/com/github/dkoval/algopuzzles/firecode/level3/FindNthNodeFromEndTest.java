@@ -11,7 +11,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link FindNthNodeFromEnd} solution.
+ * Tests {@link FindNthNodeFromEndWithExtraSpace} and {@link FindNthNodeFromEndWithoutExtraSpace} solutions.
  */
 @RunWith(Parameterized.class)
 public class FindNthNodeFromEndTest {
@@ -40,8 +40,14 @@ public class FindNthNodeFromEndTest {
     }
 
     @Test
-    public void findNthNodeFromEnd() throws Exception {
-        ListNode actual = FindNthNodeFromEnd.findNthNodeFromEnd(head, n);
+    public void findNthNodeFromEndWithExtraSpace() throws Exception {
+        ListNode actual = FindNthNodeFromEndWithExtraSpace.findNthNodeFromEnd(head, n);
+        assertEquals(expected, (actual != null) ? actual.data : null);
+    }
+
+    @Test
+    public void findNthNodeFromEndWithoutExtraSpace() throws Exception {
+        ListNode actual = FindNthNodeFromEndWithoutExtraSpace.findNthNodeFromEnd(head, n);
         assertEquals(expected, (actual != null) ? actual.data : null);
     }
 }
