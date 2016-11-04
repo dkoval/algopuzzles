@@ -8,6 +8,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.BiFunction;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -38,9 +39,18 @@ public class RemoveNthNodeFromEndTest {
         });
     }
 
-    @Test
-    public void removeNthFromEnd() throws Exception {
-        ListNode actual = RemoveNthNodeFromEnd.removeNthFromEnd(head, n);
+    private void assertRemoveNthFromEnd(BiFunction<ListNode, Integer, ListNode> func) {
+        ListNode actual = func.apply(head, n);
         assertThat(ListNode.toList(actual), is(expected));
+    }
+
+    @Test
+    public void removeNthFromEndInTwoPasses() throws Exception {
+        assertRemoveNthFromEnd(RemoveNthNodeFromEnd::removeNthFromEndInTwoPasses);
+    }
+
+    @Test
+    public void removeNthFromEndInOnePass() throws Exception {
+        assertRemoveNthFromEnd(RemoveNthNodeFromEnd::removeNthFromEndInOnePass);
     }
 }
