@@ -12,16 +12,18 @@ import java.util.Set;
 public class RemoveDuplicatesFromSinglyLinkedList {
 
     public static ListNode removeDuplicates(ListNode head) {
-        if (head == null) {
-            return null;
+        if (head == null || head.next == null) {
+            return head;
         }
+
         Set<Integer> alreadySeen = new HashSet<>();
-        ListNode prev = head, curr = head;
+        alreadySeen.add(head.data);
+
+        ListNode prev = head, curr = head.next;
         while (curr != null) {
-            if (alreadySeen.contains(curr.data)) {
+            if (!alreadySeen.add(curr.data)) {
+                // remove a duplicate if seen already
                 prev.next = curr.next;
-            } else {
-                alreadySeen.add(curr.data);
             }
             prev = curr;
             curr = curr.next;
