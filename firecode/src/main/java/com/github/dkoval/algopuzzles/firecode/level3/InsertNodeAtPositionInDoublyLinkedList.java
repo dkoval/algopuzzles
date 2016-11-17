@@ -9,9 +9,16 @@ import com.github.dkoval.algopuzzles.firecode.lib.DoublyLinkedNode;
 public class InsertNodeAtPositionInDoublyLinkedList {
 
     public static DoublyLinkedNode insertAtPos(DoublyLinkedNode head, int data, int pos) {
-        if (head == null && pos == 1) {
-            return new DoublyLinkedNode(data);
+        // insert new node at heading position
+        if (pos == 1) {
+            DoublyLinkedNode newNode = new DoublyLinkedNode(data);
+            if (head != null) {
+                newNode.next = head;
+                head.prev = newNode;
+            }
+            return newNode;
         }
+
         // find position
         DoublyLinkedNode prev = head, curr = head;
         int i = 1;
@@ -23,16 +30,11 @@ public class InsertNodeAtPositionInDoublyLinkedList {
             curr = curr.next;
             i++;
         }
+
         // insert new node
         if (i < pos) {
             // nothing to do if position is not reachable
             return head;
-        } else if (i == 1) {
-            // insert new node at heading position
-            DoublyLinkedNode newNode = new DoublyLinkedNode(data);
-            newNode.next = curr;
-            curr.prev = newNode;
-            head = newNode;
         } else if (curr != null) {
             // insert new node at middle position
             DoublyLinkedNode newNode = new DoublyLinkedNode(data);
