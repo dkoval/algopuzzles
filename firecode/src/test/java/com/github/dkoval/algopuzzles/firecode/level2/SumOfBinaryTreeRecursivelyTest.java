@@ -11,14 +11,14 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link SumOfBinaryTree} solution.
+ * Tests {@link SumOfBinaryTreeRecursively} solution.
  */
 @RunWith(Parameterized.class)
-public class SumOfBinaryTreeTest {
+public class SumOfBinaryTreeRecursivelyTest {
     private final TreeNode root;
     private final int expected;
 
-    public SumOfBinaryTreeTest(TreeNode root, int expected) {
+    public SumOfBinaryTreeRecursivelyTest(TreeNode root, int expected) {
         this.root = root;
         this.expected = expected;
     }
@@ -43,7 +43,7 @@ public class SumOfBinaryTreeTest {
 
     @Test
     public void sum() throws Exception {
-        int actual = SumOfBinaryTree.sum(root);
+        int actual = SumOfBinaryTreeRecursively.sum(root);
         assertEquals(expected, actual);
     }
 }
