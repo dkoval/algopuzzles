@@ -54,4 +54,10 @@ public class FillInAncestorsOfNodeInBinaryTreeTest {
         problem.printAncestors(root, nodeData);
         assertThat(problem.ancestorsList, is(expected));
     }
+
+    @Test
+    public void printAncestorsStateless() throws Exception {
+        List<Integer> actual = FillInAncestorsOfNodeInBinaryTree.printAncestorsStateless(root, nodeData);
+        assertThat(actual, is(expected));
+    }
 }
