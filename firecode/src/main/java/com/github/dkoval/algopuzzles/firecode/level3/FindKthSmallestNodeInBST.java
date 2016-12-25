@@ -1,6 +1,6 @@
 package com.github.dkoval.algopuzzles.firecode.level3;
 
-import com.github.dkoval.algopuzzles.firecode.level2.HeightOfBinaryTree;
+import com.github.dkoval.algopuzzles.firecode.level2.SizeOfBinaryTree;
 import com.github.dkoval.algopuzzles.firecode.lib.TreeNode;
 
 import java.util.Deque;
@@ -17,7 +17,7 @@ public class FindKthSmallestNodeInBST {
         }
         int leftTreeHeight = 0;
         if (root.left != null) {
-            leftTreeHeight = HeightOfBinaryTree.findHeight(root.left);
+            leftTreeHeight = SizeOfBinaryTree.size(root.left);
         }
         if (leftTreeHeight == k - 1) {
             return root;
