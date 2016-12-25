@@ -43,6 +43,7 @@ public class FindKthSmallestNodeInBST {
                 k--;
                 if (k == 0) {
                     res = n;
+                    break;
                 }
                 p = n.right;
             }
