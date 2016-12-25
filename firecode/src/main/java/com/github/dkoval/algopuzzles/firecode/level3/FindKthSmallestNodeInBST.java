@@ -32,22 +32,18 @@ public class FindKthSmallestNodeInBST {
     public static TreeNode findKthSmallestIterative(TreeNode root, int k) {
         Deque<TreeNode> stack = new LinkedList<>();
         TreeNode p = root;
-        TreeNode res = null;
-
         while (!stack.isEmpty() || p != null) {
             if (p != null) {
                 stack.push(p);
                 p = p.left;
             } else {
                 TreeNode n = stack.pop();
-                k--;
-                if (k == 0) {
-                    res = n;
-                    break;
+                if (--k == 0) {
+                    return n;
                 }
                 p = n.right;
             }
         }
-        return res;
+        return null;
     }
 }
