@@ -15,16 +15,16 @@ public class FindKthSmallestNodeInBST {
         if (root == null) {
             return null;
         }
-        int leftTreeHeight = 0;
+        int leftTreeSize = 0;
         if (root.left != null) {
-            leftTreeHeight = SizeOfBinaryTree.size(root.left);
+            leftTreeSize = SizeOfBinaryTree.size(root.left);
         }
-        if (leftTreeHeight == k - 1) {
+        if (leftTreeSize == k - 1) {
             return root;
-        } else if (leftTreeHeight >= k) {
+        } else if (leftTreeSize >= k) {
             return findKthSmallestRecursive(root.left, k);
         } else {
-            return findKthSmallestRecursive(root.right, k - leftTreeHeight - 1);
+            return findKthSmallestRecursive(root.right, k - leftTreeSize - 1);
         }
     }
 
