@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.function.Function;
 
 import static org.junit.Assert.assertEquals;
 
@@ -46,9 +47,18 @@ public class FindDiameterOfBSTTest {
         });
     }
 
-    @Test
-    public void diameter() throws Exception {
-        int actual = FindDiameterOfBST.diameter(root);
+    private void assertDiameter(Function<TreeNode, Integer> solution) {
+        int actual = solution.apply(root);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void diameterNaive() throws Exception {
+        assertDiameter(FindDiameterOfBST::diameterNaive);
+    }
+
+    @Test
+    public void diameterImproved() throws Exception {
+        assertDiameter(FindDiameterOfBST::diameterImproved);
     }
 }
