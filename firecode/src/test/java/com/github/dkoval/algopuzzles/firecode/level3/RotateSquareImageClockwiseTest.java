@@ -51,7 +51,7 @@ public class RotateSquareImageClockwiseTest {
                         {1, 0, 1},
                         {1, 0, 1},
                         {1, 0, 1},
-                },
+                    },
                     new int[][]{
                         {1, 1, 1},
                         {0, 0, 0},
@@ -61,7 +61,7 @@ public class RotateSquareImageClockwiseTest {
         });
     }
 
-    private static void assert2DArrayEquals(int[][] expected, int[][] actual) {
+    public static void assert2DArrayEquals(int[][] expected, int[][] actual) {
         assertEquals(expected.length, actual.length);
         for (int i = 0; i < expected.length; i++) {
             assertArrayEquals(expected[i], actual[i]);
