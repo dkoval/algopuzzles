@@ -11,7 +11,7 @@ public class AccurateSorting {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int q = in.nextInt();
-        while (--q > 0) {
+        while (q-- > 0) {
             int n = in.nextInt();
             int[] arr = new int[n];
             for (int i = 0; i < n; i++) {
@@ -27,18 +27,15 @@ public class AccurateSorting {
         for (int i = 0; i < arr.length - 1; i++) {
             int first = arr[i];
             int second = arr[i + 1];
-            if (first > second && first - second == 1) {
-                arr[i] = second;
-                arr[i + 1] = first;
-            }
-        }
-        return isSorted(arr);
-    }
-
-    private static boolean isSorted(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                return false;
+            if (first > second) {
+                if (first - second == 1) {
+                    // try to keep the array sorted in ascending order by swapping two adjacent elements
+                    // as long as the absolute difference between these elements is 1
+                    arr[i] = second;
+                    arr[i + 1] = first;
+                } else {
+                    return false;
+                }
             }
         }
         return true;
