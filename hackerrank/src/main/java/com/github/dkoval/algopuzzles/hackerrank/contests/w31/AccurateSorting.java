@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * <a href="https://www.hackerrank.com/contests/w31/challenges/accurate-sorting">Problem:</a>
- * * Max Score: 25 Difficulty: Easy
+ * Max Score: 25 Difficulty: Easy
  */
 public class AccurateSorting {
 
