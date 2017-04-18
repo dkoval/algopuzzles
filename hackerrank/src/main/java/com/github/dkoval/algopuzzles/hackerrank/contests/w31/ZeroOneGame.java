@@ -51,7 +51,7 @@ public class ZeroOneGame {
                 contSubseqLength++;
             }
         }
-        // check of a contiguous sub-sequence consisting made up of `0`s appears at the end of the sequence
+        // check if a contiguous sub-sequence consisting made up of `0`s appears at the end of the sequence
         if (subseqElem == 0 && contSubseqLength > 2) {
             numMoves += contSubseqLength - 2;
         }
