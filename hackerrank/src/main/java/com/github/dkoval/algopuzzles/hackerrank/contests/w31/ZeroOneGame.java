@@ -25,21 +25,14 @@ public class ZeroOneGame {
 
     public static String solve(int[] sequence) {
         int numMoves = 0;
-        // count number of occurrences of `010` in the sequence
-        for (int i = 1; i < sequence.length - 1; i++) {
-            if (sequence[i - 1] == 0 && sequence[i] == 1 && sequence[i + 1] == 0) {
-                numMoves++;
-                // sort of a hack to mark `1` element as visited
-                sequence[i] = -1;
-            }
-        }
-        // find contiguous sub-sequences made up of `0`s
         int subseqElem = sequence[0], contSubseqLength = 1;
         for (int i = 1; i < sequence.length; i++) {
-            // ignore already visited elements
-            if (sequence[i] == -1) {
+            // count number of occurrences of `010` in the sequence
+            if (i < sequence.length - 1 && sequence[i - 1] == 0 && sequence[i] == 1 && sequence[i + 1] == 0) {
+                numMoves++;
                 continue;
             }
+            // find contiguous sub-sequences made up of `0`s
             if (sequence[i] != subseqElem) {
                 if (subseqElem == 0 && contSubseqLength > 2) {
                     numMoves += contSubseqLength - 2;
