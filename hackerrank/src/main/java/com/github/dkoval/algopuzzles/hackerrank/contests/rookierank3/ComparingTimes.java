@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * <a href="https://www.hackerrank.com/contests/rookierank-3/challenges/comparing-times>Comparing Times</a>
+ * Max Score: 15 Difficulty: Easy
  */
 public class ComparingTimes {
 
