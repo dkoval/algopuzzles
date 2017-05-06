@@ -3,7 +3,7 @@ package com.github.dkoval.algopuzzles.hackerrank.contests.rookierank3;
 import java.util.Scanner;
 
 /**
- * <a href="https://www.hackerrank.com/contests/rookierank-3/challenges/find-the-bug">Problem:</a>
+ * <a href="https://www.hackerrank.com/contests/rookierank-3/challenges/find-the-bug">Find the Bug</a>
  * Max Score: 10 Difficulty: Easy
  */
 public class FindTheBug {
