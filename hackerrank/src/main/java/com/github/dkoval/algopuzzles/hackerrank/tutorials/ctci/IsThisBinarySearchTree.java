@@ -19,19 +19,16 @@ public class IsThisBinarySearchTree {
     }
 
     static boolean checkBST(Node root) {
-        return (root == null) || doCheckBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return doCheckBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     private static boolean doCheckBST(Node root, int loBoundary, int hiBoundary) {
+        if (root == null) {
+           return true;
+        }
         if (root.data <= loBoundary || root.data >= hiBoundary) {
             return false;
         }
-        if (root.left != null && !doCheckBST(root.left, loBoundary, root.data)) {
-            return false;
-        }
-        if (root.right != null && !doCheckBST(root.right, root.data, hiBoundary)) {
-            return false;
-        }
-        return true;
+        return doCheckBST(root.left, loBoundary, root.data) && doCheckBST(root.right, root.data, hiBoundary);
     }
 }
