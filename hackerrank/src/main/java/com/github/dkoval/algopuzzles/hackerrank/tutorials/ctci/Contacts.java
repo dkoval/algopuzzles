@@ -24,8 +24,8 @@ public class Contacts {
          * @param word the word to add.
          */
         public void add(String word) {
+            root.wordCount++;
             Node current = root;
-            current.wordCount++;
             for (int i = 0; i < word.length(); i++) {
                 Character ch = word.charAt(i);
                 Node node = current.letters.get(ch);
