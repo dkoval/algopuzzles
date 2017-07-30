@@ -25,6 +25,7 @@ public class Contacts {
          */
         public void add(String word) {
             Node current = root;
+            current.wordCount++;
             for (int i = 0; i < word.length(); i++) {
                 Character ch = word.charAt(i);
                 Node node = current.letters.get(ch);
@@ -32,7 +33,7 @@ public class Contacts {
                     node = new Node();
                     current.letters.put(ch, node);
                 }
-                current.wordCount++;
+                node.wordCount++;
                 current = node;
             }
         }

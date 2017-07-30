@@ -26,14 +26,32 @@ public class ContactsTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {
-                        new HashSet<String>() {{
-                            add("hack");
-                            add("hackerrank");
-                        }},
-                        new HashMap<String, Integer>() {{
-                            put("hac", 2);
-                            put("hak", 0);
-                        }}
+                    new HashSet<String>() {{
+                        add("hack");
+                        add("hackerrank");
+                    }},
+                    new HashMap<String, Integer>() {{
+                        put("hac", 2);
+                        put("hak", 0);
+                    }}
+                },
+
+                {
+                    new HashSet<String>() {{
+                        add("s");
+                        add("ss");
+                        add("sss");
+                        add("ssss");
+                        add("sssss");
+                    }},
+                    new HashMap<String, Integer>() {{
+                        put("s", 5);
+                        put("ss", 4);
+                        put("sss", 3);
+                        put("ssss", 2);
+                        put("sssss", 1);
+                        put("ssssss", 0);
+                    }}
                 },
         });
     }
