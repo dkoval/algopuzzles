@@ -15,7 +15,7 @@ public class Contacts {
 
         private class Node {
             final Map<Character, Node> letters = new HashMap<>();
-            int wordCount = 0;
+            int wordCount = 0; // stores number of leaf nodes
         }
 
         /**
