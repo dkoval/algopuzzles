@@ -8,18 +8,18 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * Tests {@link FindRunningMedian} solution.
  */
 @RunWith(Parameterized.class)
 public class FindRunningMedianTest {
-    private final int[] stream;
+    private final int[] numbers;
     private final double[] expected;
 
-    public FindRunningMedianTest(int[] stream, double[] expected) {
-        this.stream = stream;
+    public FindRunningMedianTest(int[] numbers, double[] expected) {
+        this.numbers = numbers;
         this.expected = expected;
     }
 
@@ -32,11 +32,7 @@ public class FindRunningMedianTest {
 
     @Test
     public void runningMedian() throws Exception {
-        int[] a = new int[stream.length];
-        for (int i = 0; i < stream.length; i++) {
-            a[i] = stream[i];
-            double actual = FindRunningMedian.calcRunningMedian(a[i]);
-            assertThat(actual, closeTo(expected[i], 1e-3));
-        }
+        double[] actual = FindRunningMedian.getMedians(numbers);
+        assertThat(actual, equalTo(expected));
     }
 }

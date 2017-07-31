@@ -10,46 +10,54 @@ import java.util.Scanner;
  */
 public class FindRunningMedian {
 
-    /**
-     * maxHeap stores the larger half seen so far.
-     */
-    private static final PriorityQueue<Integer> maxHeap = new PriorityQueue<>(2, Collections.reverseOrder());
-
-    /**
-     * minHeap stores the smaller part seen so far.
-     */
-    private static final PriorityQueue<Integer> minHeap = new PriorityQueue<>(1);
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = in.nextInt();
-            double median = calcRunningMedian(a[i]);
+        }
+        double[] medians = getMedians(a);
+        for (double median : medians) {
             System.out.printf("%.1f\n", median);
         }
     }
 
-    static double calcRunningMedian(int x) {
-        if (maxHeap.isEmpty()) {
-            // this is the very first element
-            maxHeap.add(x);
-        } else {
-            if (x >= maxHeap.peek()) {
-                minHeap.add(x);
-            } else {
-                maxHeap.add(x);
-            }
+    static double[] getMedians(int[] numbers) {
+        // lowerHalf stores the larger half seen so far
+        PriorityQueue<Integer> lowerHalf = new PriorityQueue<>(Collections.reverseOrder());
+        // upperHalf stores the smaller part seen so far
+        PriorityQueue<Integer> upperHalf = new PriorityQueue<>();
+        // perform calculation
+        double[] medians = new double[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            int number = numbers[i];
+            trackNumber(number, lowerHalf, upperHalf);
+            rebalanceHeaps(lowerHalf, upperHalf);
+            medians[i] = calculateMedian(lowerHalf, upperHalf);
         }
+        return medians;
+    }
 
-        // ensure maxHeap and minHeap have equal number of elements if an even number of elements is read;
-        // otherwise, maxHeap must have one more element than minHeap
-        if (minHeap.size() > maxHeap.size()) {
-            maxHeap.add(minHeap.remove());
-        } else if (maxHeap.size() > minHeap.size() + 1) {
-            minHeap.add(maxHeap.remove());
+    private static void trackNumber(int number, PriorityQueue<Integer> lowerHalf, PriorityQueue<Integer> upperHalf) {
+        if (lowerHalf.isEmpty() || number < lowerHalf.peek()) {
+            lowerHalf.add(number);
+        } else {
+            upperHalf.add(number);
         }
-        return (maxHeap.size() == minHeap.size()) ? 0.5 * (maxHeap.peek() + minHeap.peek()) : maxHeap.peek();
+    }
+
+    private static void rebalanceHeaps(PriorityQueue<Integer> lowerHalf, PriorityQueue<Integer> upperHalf) {
+        // ensure lowerHalf and upperHalf have equal number of elements if an even number of elements is read;
+        // otherwise, lowerHalf must have one more element than upperHalf
+        if (upperHalf.size() > lowerHalf.size()) {
+            lowerHalf.add(upperHalf.remove());
+        } else if (lowerHalf.size() > upperHalf.size() + 1) {
+            upperHalf.add(lowerHalf.remove());
+        }
+    }
+
+    private static double calculateMedian(PriorityQueue<Integer> lowerHalf, PriorityQueue<Integer> upperHalf) {
+        return (lowerHalf.size() == upperHalf.size()) ? 0.5 * (lowerHalf.peek() + upperHalf.peek()) : lowerHalf.peek();
     }
 }
