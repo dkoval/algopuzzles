@@ -17,9 +17,9 @@ import static org.hamcrest.Matchers.equalTo;
 public class CoinChangeTest {
     private final int n;
     private final int[] coins;
-    private final int expected;
+    private final long expected;
 
-    public CoinChangeTest(int n, int[] coins, int expected) {
+    public CoinChangeTest(int n, int[] coins, long expected) {
         this.n = n;
         this.coins = coins;
         this.expected = expected;
@@ -28,14 +28,15 @@ public class CoinChangeTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {4, new int[]{1, 2, 3}, 4},
-                {10, new int[]{2, 5, 3, 6}, 5},
+                {4, new int[]{1, 2, 3}, 4L},
+                {10, new int[]{2, 5, 3, 6}, 5L},
+                {250, new int[]{8, 47, 13, 24, 25, 31, 32, 35, 3, 19, 40, 48, 1, 4, 17, 38, 22, 30, 33, 15, 44, 46, 36, 9, 20, 49}, 3542323427L},
         });
     }
 
     @Test
     public void numWaysToMakeChange() throws Exception {
-        int actual = CoinChange.numWaysToMakeChange(n, coins);
+        long actual = CoinChange.numWaysToMakeChange(n, coins);
         assertThat(actual, equalTo(expected));
     }
 }
