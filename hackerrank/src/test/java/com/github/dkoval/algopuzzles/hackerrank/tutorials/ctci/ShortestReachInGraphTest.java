@@ -38,7 +38,7 @@ public class ShortestReachInGraphTest {
 
     @Test
     public void getShortestDistances() throws Exception {
-        int[] actual = g.getShortestDistances(s, 6);
+        int[] actual = g.getShortestDistances(s);
         assertThat(actual, equalTo(expected));
     }
 }

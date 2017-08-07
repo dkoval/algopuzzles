@@ -22,7 +22,7 @@ public class ShortestReachInGraph {
                 g.addEdge(u, v);
             }
             int s = scan.nextInt() - 1;
-            int[] distances = g.getShortestDistances(s, 6);
+            int[] distances = g.getShortestDistances(s);
             String answer = Arrays.stream(distances).boxed()
                     .filter(distance -> distance != 0)
                     .map(Object::toString)
@@ -32,6 +32,8 @@ public class ShortestReachInGraph {
     }
 
     public static class Graph {
+        static final int EDGE_LENGTH = 6;
+
         private final List<Integer>[] adj;
 
         public Graph(int n) {
@@ -47,7 +49,7 @@ public class ShortestReachInGraph {
             return this;
         }
 
-        public int[] getShortestDistances(int s, int edgeLength) {
+        public int[] getShortestDistances(int s) {
             Queue<Integer> q = new LinkedList<>();
             int[] distances = new int[adj.length];
             Arrays.fill(distances, -1);
@@ -60,7 +62,7 @@ public class ShortestReachInGraph {
                     // only consider vertices that have not yet been visited
                     if (distances[v] == -1) {
                         q.add(v);
-                        distances[v] = distances[u] + edgeLength; // distances[v] stores the shortest distance from s to v
+                        distances[v] = distances[u] + EDGE_LENGTH; // distances[v] stores the shortest distance from s to v
                     }
                 }
             }
