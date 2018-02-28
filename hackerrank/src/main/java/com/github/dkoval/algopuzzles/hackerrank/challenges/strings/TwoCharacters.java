@@ -20,38 +20,36 @@ public class TwoCharacters {
     }
 
     static int twoCharaters(String s) {
-        Character[] distinctChars = distinctChars(s);
-        int result = 0;
-        for (int i = 0; i < distinctChars.length; i++) {
-            for (int j = 0; j < distinctChars.length; j++) {
-                if (i == j) {
+        Set<Character> distinctChars = distinctChars(s);
+        int maxLength = 0;
+        for (char first : distinctChars) {
+            for (char second : distinctChars) {
+                // choose two distinct characters to be present in string t
+                if (first == second) {
                     continue;
                 }
-                // choose two distinct characters to be present in string t,
-                // characters must appear in alternating order in t
-                Character first = distinctChars[i];
-                Character second = distinctChars[j];
                 // check if string s can be converted to t
                 int length = lengthOfStringWithTwoDistinctAlternatingChars(s, first, second);
                 if (length > 0) {
-                    result = Math.max(result, length);
+                    maxLength = Math.max(maxLength, length);
                 }
             }
         }
-        return result;
+        return maxLength;
     }
 
-    private static Character[] distinctChars(String s) {
+    private static Set<Character> distinctChars(String s) {
         Set<Character> distinctChars = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             distinctChars.add(c);
         }
-        return distinctChars.toArray(new Character[distinctChars.size()]);
+        return distinctChars;
     }
 
     private static int lengthOfStringWithTwoDistinctAlternatingChars(String s, char first, char second) {
         int length = 0;
+        char alt = first;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             // only consider `first` and `second` characters
@@ -59,11 +57,9 @@ public class TwoCharacters {
                 continue;
             }
             // make sure that `first` and `second` characters appear in alternating order
-            if (c == first) {
+            if (c == alt) {
                 length++;
-                char tmp = first;
-                first = second;
-                second = tmp;
+                alt = (alt == first) ? second : first;
             } else {
                 return -1;
             }
