@@ -36,7 +36,7 @@ public class IceCreamParlor {
             int rest = money - arr[i];
             Integer j = val2Idx.get(rest);
             if (j != null) {
-                // Each flavo is numbered sequentially with a unique ID number from 1 to n
+                // Each flavor is numbered sequentially with a unique ID number from 1 to n
                 return new int[]{j + 1, i + 1};
             }
             val2Idx.put(arr[i], i);
