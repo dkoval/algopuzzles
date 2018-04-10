@@ -24,7 +24,7 @@ public class TwosCompliment {
         if (a >= 0 && b >= 0) {
             return bitCountInPositiveRange(a, b);
         } else if (a < 0 && b >= 0) {
-            return bitCountInNegativeRange(a, -1) + bitCountInPositiveRange(0, b);
+            return bitCountInNegativeRange(a, -1) + bitCountInZeroToNRange(b);
         } else {
             return bitCountInNegativeRange(a, b);
         }
@@ -35,7 +35,8 @@ public class TwosCompliment {
         long res = bitCountInZeroToNRange(b);
         return (a > 0) ? res - bitCountInZeroToNRange(a - 1) : res;
     }
-    // 2's complement of [-a, -b] = [2^32 - a, 2^32 - b]
+
+    // 2's complement of -x = 2^32 - x, therefore [-a, -b] = [2^32 - a, 2^32 - b]
     private static long bitCountInNegativeRange(long a, long b) {
         return bitCountInPositiveRange((1L << 32) + a, (1L << 32) + b);
     }
