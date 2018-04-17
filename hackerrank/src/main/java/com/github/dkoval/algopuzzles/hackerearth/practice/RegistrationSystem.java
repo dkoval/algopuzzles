@@ -7,22 +7,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegistrationSystem {
-    private final Map<String, Integer> logins = new HashMap<>();
+
+    private static class TrieNode {
+        Map<Character, TrieNode> children = new HashMap<>();
+        boolean occupied;
+        int suffix;
+    }
+
+    private TrieNode root = new TrieNode();
 
     String register(String login) {
-        Integer suffix = logins.get(login);
-        if (suffix != null) {
-            String newLogin;
-            do {
-                newLogin = login + suffix++;
-            } while (logins.containsKey(newLogin));
-            logins.put(newLogin, 0);
-            logins.put(login, suffix);
-            return newLogin;
-        } else {
-            logins.put(login, 0);
+        TrieNode node = insert(root, login);
+        if (node == null) {
             return login;
+        } else {
+            return login + generateSuffix(node);
         }
+    }
+
+    private TrieNode insert(TrieNode node, String login) {
+        TrieNode current = node;
+        for (int i = 0; i < login.length(); i++) {
+            char ch = login.charAt(i);
+            current = current.children.computeIfAbsent(ch, key -> new TrieNode());
+        }
+        if (current.occupied) {
+            return current;
+        }
+        current.occupied = true;
+        return null;
+    }
+
+    private long generateSuffix(TrieNode node) {
+        TrieNode current;
+        do {
+            current = insert(node, Integer.toString(node.suffix));
+            if (current != null) {
+                node.suffix++;
+            }
+        } while (current != null);
+        return node.suffix;
     }
 
     public static void main(String[] args) throws IOException {
