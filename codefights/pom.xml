@@ -10,6 +10,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>algopuzzles-geeksforgeeks</artifactId>
+    <artifactId>algopuzzles-codefights</artifactId>
 
 </project>

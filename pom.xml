@@ -22,6 +22,7 @@
     </properties>
 
     <modules>
+        <module>codefights</module>
         <module>ctci</module>
         <module>epi</module>
         <module>firecode</module>
