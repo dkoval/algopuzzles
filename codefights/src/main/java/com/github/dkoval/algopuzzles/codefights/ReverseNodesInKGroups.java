@@ -56,7 +56,7 @@ public class ReverseNodesInKGroups {
         while (curr != null) {
             count++;
             if (count % k == 0) {
-                prev = reverseList(prev, curr.next);
+                prev = reverseSubList(prev, curr.next);
                 curr = prev.next;
             } else {
                 curr = curr.next;
@@ -65,7 +65,7 @@ public class ReverseNodesInKGroups {
         return dummy.next;
     }
 
-    private static ListNode<Integer> reverseList(ListNode<Integer> before, ListNode<Integer> after) {
+    private static ListNode<Integer> reverseSubList(ListNode<Integer> before, ListNode<Integer> after) {
         ListNode<Integer> head = before.next, curr = head, prev = null;
         while (curr != after) {
             ListNode<Integer> next = curr.next;
