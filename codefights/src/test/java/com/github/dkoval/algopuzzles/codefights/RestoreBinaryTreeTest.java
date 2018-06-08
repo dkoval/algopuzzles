@@ -45,4 +45,10 @@ public class RestoreBinaryTreeTest {
         Tree<Integer> actual = RestoreBinaryTree.restoreBinaryTree(inorder, preorder);
         assertTrue(equalTrees(actual, expected));
     }
+
+    @Test
+    public void restoreBinaryTreeImproved() {
+        Tree<Integer> actual = RestoreBinaryTree.restoreBinaryTreeImproved(inorder, preorder);
+        assertTrue(equalTrees(actual, expected));
+    }
 }
