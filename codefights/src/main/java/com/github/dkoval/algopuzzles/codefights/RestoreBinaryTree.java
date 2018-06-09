@@ -3,7 +3,6 @@ package com.github.dkoval.algopuzzles.codefights;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -58,11 +57,11 @@ public class RestoreBinaryTree {
         }
 
         int root = preorder[0];
+        Tree<Integer> node = new Tree<>(root);
         int leftSubtreeLength = IntStream.range(0, inorder.length)
                 .filter(i -> inorder[i] == root)
                 .findFirst().orElse(-1);
 
-        Tree<Integer> node = new Tree<>(root);
         node.left = restoreBinaryTree(
                 Arrays.copyOfRange(inorder, 0, leftSubtreeLength),
                 Arrays.copyOfRange(preorder, 1, leftSubtreeLength + 1));
@@ -74,30 +73,38 @@ public class RestoreBinaryTree {
         return node;
     }
 
+    // Runtime complexity: O(n)
     static Tree<Integer> restoreBinaryTreeImproved(int[] inorder, int[] preorder) {
-        Map<Integer, Integer> inorderValuesIndex = IntStream.range(0, inorder.length)
+        Map<Integer, Integer> inorderIndex = IntStream.range(0, inorder.length)
                 .boxed()
-                .collect(Collectors.toMap(i -> inorder[i], Function.identity()));
-        return doRestoreBinaryTreeImproved(inorder, preorder, inorderValuesIndex);
+                .collect(Collectors.toMap(i -> inorder[i], i -> i));
+
+        return doRestoreBinaryTreeImproved(
+                inorderIndex, 0, inorder.length - 1,
+                preorder, 0
+        );
     }
 
-    private static Tree<Integer> doRestoreBinaryTreeImproved(int[] inorder, int[] preorder,
-                                                             Map<Integer, Integer> inorderValuesIndex) {
-        if (inorder.length == 0) {
+    private static Tree<Integer> doRestoreBinaryTreeImproved(Map<Integer, Integer> inorderIndex, int inorderStartInclusive, int inorderEndInclusive,
+                                                             int[] preorder, int preorderStartInclusive) {
+        // base case
+        if (inorderStartInclusive > inorderEndInclusive) {
             return null;
         }
 
-        int root = preorder[0];
-        int leftSubtreeLength = inorderValuesIndex.get(root);
-
+        int root = preorder[preorderStartInclusive];
         Tree<Integer> node = new Tree<>(root);
-        node.left = restoreBinaryTree(
-                Arrays.copyOfRange(inorder, 0, leftSubtreeLength),
-                Arrays.copyOfRange(preorder, 1, leftSubtreeLength + 1));
+        int leftSubtreeLength = inorderIndex.get(root) - inorderStartInclusive;
 
-        node.right = restoreBinaryTree(
-                Arrays.copyOfRange(inorder, leftSubtreeLength + 1, inorder.length),
-                Arrays.copyOfRange(preorder, leftSubtreeLength + 1, inorder.length));
+        node.left = doRestoreBinaryTreeImproved(
+                inorderIndex, inorderStartInclusive, inorderStartInclusive + leftSubtreeLength - 1,
+                preorder, preorderStartInclusive + 1
+        );
+
+        node.right = doRestoreBinaryTreeImproved(
+                inorderIndex, inorderStartInclusive + leftSubtreeLength + 1, inorderEndInclusive,
+                preorder, preorderStartInclusive + leftSubtreeLength + 1
+        );
 
         return node;
     }
