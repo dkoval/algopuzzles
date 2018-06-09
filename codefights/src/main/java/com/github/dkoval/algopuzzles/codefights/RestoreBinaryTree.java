@@ -80,15 +80,15 @@ public class RestoreBinaryTree {
                 .collect(Collectors.toMap(i -> inorder[i], i -> i));
 
         return doRestoreBinaryTreeImproved(
-                inorderIndex, 0, inorder.length - 1,
+                inorderIndex, 0, inorder.length,
                 preorder, 0
         );
     }
 
-    private static Tree<Integer> doRestoreBinaryTreeImproved(Map<Integer, Integer> inorderIndex, int inorderStartInclusive, int inorderEndInclusive,
+    private static Tree<Integer> doRestoreBinaryTreeImproved(Map<Integer, Integer> inorderIndex, int inorderStartInclusive, int inorderEndExclusive,
                                                              int[] preorder, int preorderStartInclusive) {
         // base case
-        if (inorderStartInclusive > inorderEndInclusive) {
+        if (inorderStartInclusive >= inorderEndExclusive) {
             return null;
         }
 
@@ -97,12 +97,12 @@ public class RestoreBinaryTree {
         int leftSubtreeLength = inorderIndex.get(root) - inorderStartInclusive;
 
         node.left = doRestoreBinaryTreeImproved(
-                inorderIndex, inorderStartInclusive, inorderStartInclusive + leftSubtreeLength - 1,
+                inorderIndex, inorderStartInclusive, inorderStartInclusive + leftSubtreeLength,
                 preorder, preorderStartInclusive + 1
         );
 
         node.right = doRestoreBinaryTreeImproved(
-                inorderIndex, inorderStartInclusive + leftSubtreeLength + 1, inorderEndInclusive,
+                inorderIndex, inorderStartInclusive + leftSubtreeLength + 1, inorderEndExclusive,
                 preorder, preorderStartInclusive + leftSubtreeLength + 1
         );
 
